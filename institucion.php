@@ -8,7 +8,7 @@ class instituto{
     public $contrasena;
 
     //cosntructor
-    public function __construct($nombre, $ciudad, $representante, $correo) {
+    public function __construct($nombre, $ciudad, $representante, $correo, $contrasena) {
         $this -> nombre= $nombre;
         $this -> ciudad = $ciudad;
         $this -> representante = $representante;
