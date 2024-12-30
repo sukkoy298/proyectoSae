@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Registro de Institución</h2>
-        <form action="register.php" method="POST" class="mt-4">
+        <form action="registroControler.php" method="POST" class="mt-4">
             <div class="form-group">
                 <label for="nombreInstitucion">Nombre de la Institución:</label>
                 <input type="text" id="nombreInstitucion" name="nombreInstitucion" class="form-control" required>

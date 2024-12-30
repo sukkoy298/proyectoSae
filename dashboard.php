@@ -19,7 +19,12 @@ if (!isset($_SESSION['username'])) {
 <body>
     <div class="container mt-5">
         <h2>Bienvenido, <?php echo $_SESSION['username']; ?>!</h2>
-        <p>Esta es la página protegida.</p>
+
+
+
+
+
+        
         <a href="logout.php" class="btn btn-danger">Cerrar Sesión</a>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
