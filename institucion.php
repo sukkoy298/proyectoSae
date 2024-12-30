@@ -5,11 +5,20 @@ class instituto{
     public $ciudad;
     public $representante;
     public $correo;
+    public $contrasena;
 
     //cosntructor
-    public function __cosntruct($nombre, $ciudad, $representante, $correo) {
+    public function __construct($nombre, $ciudad, $representante, $correo) {
         $this -> nombre= $nombre;
         $this -> ciudad = $ciudad;
+        $this -> representante = $representante;
+        $this -> correo = $correo;
+        $this -> contrasena = $contrasena;
+    }
+
+    //metodos
+    public function registrar(){
+        
     }
 }
 
