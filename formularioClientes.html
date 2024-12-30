@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Formulario de Registro</h2>
+    <form id="registroForm">
+        <div class="form-group">
+            <label for="nombreInstitucion">Nombre de la Institución</label>
+            <input type="text" class="form-control" id="nombreInstitucion" required>
+        </div>
+        <div class="form-group">
+            <label for="ciudad">Ciudad</label>
+            <input type="text" class="form-control" id="ciudad" required>
+        </div>
+        <div class="form-group">
+            <label for="tipoSistema">Tipo de Sistema</label>
+            <select class="form-control" id="tipoSistema" required>
+                <option value="">Seleccione un tipo</option>
+                <option value="evaluacion">Evaluación</option>
+                <option value="aula_virtual">Aula Virtual</option>
+                <option value="servicio_mensajeria">Servicio de Mensajería</option>
+                <option value="sae_pagos">SAE Pagos</option>
+                <option value="asistencia_tecnica">Asistencia Técnica</option>
+                <option value="migracion_datos">Migración de Datos</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" class="form-control" id="fecha" required>
+        </div>
+        <div class="form-group">
+            <label for="personalSoporte">Personal de Soporte</label>
+            <input type="text" class="form-control" id="personalSoporte" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+<!-- Enlace a Bootstrap JS y dependencias -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    document.getElementById('registroForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita el envío del formulario
+
+        // Obtiene los valores de los campos
+        const nombreInstitucion = document.getElementById('nombreInstitucion').value;
+        const ciudad = document.getElementById('ciudad').value;
+        const tipoSistema = document.getElementById('tipoSistema').value;
+        const fecha = document.getElementById('fecha').value;
+        const personalSoporte = document.getElementById('personalSoporte').value;
+        const descripcion = document.getElementById('descripcion').value;
+
+        // Muestra los datos en la consola (puedes cambiar esto para hacer otra cosa)
+        console.log('Nombre de la Institución:', nombreInstitucion);
+        console.log('Ciudad:', ciudad);
+        console.log('Tipo de Sistema:', tipoSistema);
+        console.log('Fecha:', fecha);
+        console.log('Personal de Soporte:', personalSoporte);
+        console.log('Descripción:', descripcion);
+
+        // Aquí puedes agregar lógica para enviar los datos a un servidor si es necesario
+        alert('Formulario enviado con éxito!');
+    });
+</script>
+
+</body>
+</html>
