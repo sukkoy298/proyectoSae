@@ -5,7 +5,7 @@ class Usuario {
     protected $password;
     protected $correo;
     protected $empresa;
-    protected $solicitudes; // Cambiado a minúscula
+    protected $solicitudes; // Arreglo de sistemas
 
     // Constructor
     public function __construct($nombre, $email, $password, $correo, $empresa) {
