@@ -24,6 +24,7 @@ necesitamos crear los siguientes objetos
         fecha y hora que lo solicito
         personal que se encargara del proyecto (esto se lo asigna un programador mientra va a estar en estatus no asignado)
         requisitos de la institucion (mensaje)
+        $nombre, $ciudad, $tipo, $correo, $fecha, $programador, $status, $requisitos
 
     usuario 
         nombre

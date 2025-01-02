@@ -1,16 +1,14 @@
 <?php
 class Usuario {
     protected $nombre;
-    protected $email;
     protected $password;
     protected $correo;
     protected $empresa;
-    protected $solicitudes; // Arreglo de sistemas
+    protected $solicitudes; // Arreglo de sistema
 
     // Constructor
-    public function __construct($nombre, $email, $password, $correo, $empresa) {
+    public function __construct($nombre, $password, $correo, $empresa) {
         $this->nombre = $nombre;
-        $this->email = $email;
         $this->password = $password;
         $this->correo = $correo;
         $this->empresa = $empresa;
