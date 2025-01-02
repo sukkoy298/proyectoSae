@@ -31,6 +31,7 @@ necesitamos crear los siguientes objetos
         empresa (le permite ver los proyectos pendientes de la institucion)
         cargo que ocupa en la empresa
         contrase;a
+        solicitududes de sistema array
 
 
     
