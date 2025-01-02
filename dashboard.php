@@ -19,7 +19,8 @@ if (!isset($_SESSION['username'])) {
 <body>
     <div class="container mt-5">
         <h2>Bienvenido, <?php echo $_SESSION['username']; ?>!</h2>
-
+        <p>Has iniciado sesión correctamente.</p>
+        
 
 
 
