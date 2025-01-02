@@ -5,15 +5,13 @@ class instituto{
     public $ciudad;
     public $representante;
     public $correo;
-    public $mensaje;
 
     //cosntructor
-    public function __construct($nombre, $ciudad, $representante, $correo, $mensaje) {
+    public function __construct($nombre, $ciudad, $representante, $correo) {
         $this -> nombre= $nombre;
         $this -> ciudad = $ciudad;
         $this -> representante = $representante;
         $this -> correo = $correo;
-        $this -> mensaje = $mensaje;
     }
 
     //metodos
@@ -37,10 +35,6 @@ class instituto{
         return $this -> correo;
     }
 
-    public function getMensaje(){
-        return $this -> mensaje;
-    }
-
     public function setNombre($nombre){
         $this -> nombre = $nombre;
     }
@@ -55,10 +49,6 @@ class instituto{
 
     public function setCorreo($correo){
         $this -> correo = $correo;
-    }
-
-    public function setMensaje($mensaje){
-        $this -> mensaje = $mensaje;
     }
 
 }
