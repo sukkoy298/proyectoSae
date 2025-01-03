@@ -4,18 +4,21 @@ require_once 'php/institucion.php';
 require_once 'php/sistemas.php';
 
 // Captura los datos del formulario
-$nombreInstitucion = $_POST['nombrePersona'];
-$empresa = $_POST['empresa'];
+$nombreInstitucion = $_POST['empresa'];
+$nombre = $_POST['nombrePersona'];
 $ciudad = $_POST['ciudad'];
 $tipoSistema = $_POST['tipoSistema'];
 $correo = $_POST['correoElectronico'];
 $descripcion = $_POST['descripcion'];
 
 // Crea una nueva instancia de la clase instituto
-$instituto = new instituto($nombreInstitucion, $ciudad, $empresa, $correo);
+$instituto = new instituto($nombreInstitucion, $ciudad, $nombre, $correo);
 
 // Crea una nueva instancia de la clase Sistema
 $sistema = new Sistema($nombreInstitucion, $ciudad, $tipoSistema, $correo, date("d/m/Y"), "Sin asignar", "En espera", $descripcion);
+
+//crea una nueva instancia de usuario
+$usuario = new Usuario($correo, "123456", $nombre, $nombreInstitucion, $sistema());
 
 // Muestra los datos del objeto instituto
 echo "Institución registrada:<br>";
