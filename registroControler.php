@@ -1,7 +1,7 @@
 <?php
-// Incluye los archivos que contienen las clases instituto y Sistema
 require_once 'php/institucion.php';
 require_once 'php/sistemas.php';
+require_once 'php/usuario.php';
 
 // Captura los datos del formulario
 $nombreInstitucion = $_POST['empresa'];
@@ -17,8 +17,9 @@ $instituto = new instituto($nombreInstitucion, $ciudad, $nombre, $correo);
 // Crea una nueva instancia de la clase Sistema
 $sistema = new Sistema($nombreInstitucion, $ciudad, $tipoSistema, $correo, date("d/m/Y"), "Sin asignar", "En espera", $descripcion);
 
-//crea una nueva instancia de usuario
-$usuario = new Usuario($correo, "123456", $nombre, $nombreInstitucion, $sistema());
+// Crea una nueva instancia de usuario
+$usuario = new Usuario($nombre, "123456", $correo, $nombreInstitucion);
+$usuario->agregarSistema($sistema);
 
 // Muestra los datos del objeto instituto
 echo "Institución registrada:<br>";
@@ -37,4 +38,12 @@ echo "Fecha: " . $sistema->getFecha() . "<br>";
 echo "Programador: " . $sistema->getProgramador() . "<br>";
 echo "Status: " . $sistema->getStatus() . "<br>";
 echo "Requisitos: " . $sistema->getRequisitos() . "<br>";
+
+// Muestra los datos del objeto Usuario
+echo "<br>Usuario registrado:<br>";
+echo "Correo: " . $usuario->getCorreo() . "<br>";
+echo "Contraseña: " . $usuario->getPassword() . "<br>";
+echo "Nombre: " . $usuario->getNombre() . "<br>";
+echo "Institución: " . $usuario->getEmpresa() . "<br>";
+echo "Sistemas registrados: " . count($usuario->getSolicitudes()) . "<br>";
 ?>

@@ -24,5 +24,38 @@ class Usuario {
     public function getSolicitudes() {
         return $this->solicitudes;
     }
+    // Getters
+    public function getNombre() {
+        return $this->nombre;
+    }
+
+    public function getPassword() {
+        return $this->password;
+    }
+
+    public function getCorreo() {
+        return $this->correo;
+    }
+
+    public function getEmpresa() {
+        return $this->empresa;
+    }
+
+    // Setters
+    public function setNombre($nombre) {
+        $this->nombre = $nombre;
+    }
+
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+    public function setCorreo($correo) {
+        $this->correo = $correo;
+    }
+
+    public function setEmpresa($empresa) {
+        $this->empresa = $empresa;
+    }
 }
 ?>
