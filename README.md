@@ -31,7 +31,7 @@ necesitamos crear los siguientes objetos
         correo
         empresa (le permite ver los proyectos pendientes de la institucion)
         cargo que ocupa en la empresa
-        contrase;a
+        contraseña
         solicitududes de sistema array
 
 
