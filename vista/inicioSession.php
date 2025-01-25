@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Iniciar Sesión</h2>
-        <form action="login.php" method="POST" class="mt-4">
+        <form action="../php/login.php" method="POST" class="mt-4">
             <div class="form-group">
                 <label for="correo">Correo Electronico:</label>
                 <input type="email" id="correo" name="correo" class="form-control" required>
@@ -19,12 +21,13 @@
                 <input type="password" id="password" name="password" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
-            <a class="btn btn-info btn-block" href="register.html" role="button">Registrar</a>
+            <a class="btn btn-info btn-block" href="register.php" role="button">Registrar</a>
         </form>
-        
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

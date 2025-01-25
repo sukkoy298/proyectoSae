@@ -1,7 +1,7 @@
 <?php
-require_once 'php/institucion.php';
-require_once 'php/sistemas.php';
-require_once 'php/usuario.php';
+require_once '../modelo/institucion.php';
+require_once '../modelo/sistemas.php';
+require_once '../modelo/usuario.php';
 
 // Captura los datos del formulario
 $nombreInstitucion = $_POST['empresa'];
@@ -46,4 +46,3 @@ echo "Contraseña: " . $usuario->getPassword() . "<br>";
 echo "Nombre: " . $usuario->getNombre() . "<br>";
 echo "Institución: " . $usuario->getEmpresa() . "<br>";
 echo "Sistemas registrados: " . count($usuario->getSolicitudes()) . "<br>";
-?>
