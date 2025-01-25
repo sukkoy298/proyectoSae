@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: dashboard.php'); // Redirigir a la página de inicio
         exit();
     } else {
-        echo "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
+        echo "<script>alert('Usuario o contraseña incorrectos');</script>"; // Mensaje de error
+        header('Location: ../vista/casa.php'); // Redirigir a la página de inicio
     }
 }
+?>
