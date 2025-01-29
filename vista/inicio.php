@@ -1,4 +1,4 @@
-<?php include("layouts/header.html") ?>
+<?php include("layouts/header.php") ?>
 
 <div class="container">
     <div class="row text-center">
@@ -95,4 +95,4 @@
     </div>
 </div>
 
-<?php include("layouts/footer.html") ?>
+<?php include("layouts/footer.php") ?>
