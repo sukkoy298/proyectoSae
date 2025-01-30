@@ -3,6 +3,12 @@ require_once '../modelo/institucion.php';
 require_once '../modelo/sistemas.php';
 require_once '../modelo/usuario.php';
 
+include('conexion.php');
+$conn = connect();
+
+$id = null;
+$password = "123456";
+
 // Captura los datos del formulario
 $nombreInstitucion = $_POST['empresa'];
 $nombre = $_POST['nombrePersona'];
@@ -21,28 +27,15 @@ $sistema = new Sistema($nombreInstitucion, $ciudad, $tipoSistema, $correo, date(
 $usuario = new Usuario($nombre, "123456", $correo, $nombreInstitucion);
 $usuario->agregarSistema($sistema);
 
-// Muestra los datos del objeto instituto
-echo "Institución registrada:<br>";
-echo "Nombre: " . $instituto->getNombre() . "<br>";
-echo "Ciudad: " . $instituto->getCiudad() . "<br>";
-echo "Representante: " . $instituto->getRepresentante() . "<br>";
-echo "Correo: " . $instituto->getCorreo() . "<br>";
 
-// Muestra los datos del objeto Sistema
-echo "<br>Sistema registrado:<br>";
-echo "Nombre de la Institución: " . $sistema->getNombre() . "<br>";
-echo "Ciudad: " . $sistema->getCiudad() . "<br>";
-echo "Tipo de Sistema: " . $sistema->getTipo() . "<br>";
-echo "Correo: " . $sistema->getCorreo() . "<br>";
-echo "Fecha: " . $sistema->getFecha() . "<br>";
-echo "Programador: " . $sistema->getProgramador() . "<br>";
-echo "Status: " . $sistema->getStatus() . "<br>";
-echo "Requisitos: " . $sistema->getRequisitos() . "<br>";
+// Inserta los datos en la base de datos
+$sql = "INSERT INTO instituciones (id, nombre, ciudad, nombrePersona, correo) VALUES ('$id', '$nombreInstitucion', '$ciudad', '$nombre', '$correo')";
+$sql2 = "INSERT INTO sistemas (id, nombre, ciudad, tipo, correo, fecha, programador, status, requisitos) VALUES ('$id', '$nombreInstitucion', '$ciudad', '$tipoSistema', '$correo', date('d/m/Y'), 'Sin asignar', 'En espera', '$descripcion')";
+$sql3 = "INSERT INTO usuarios (id, nombre, password, correo, institucion) VALUES ('$id', '$nombre', '123456', '$correo', '$nombreInstitucion')";
+if (mysqli_query($conn, $sql) && mysqli_query($conn, $sql2) && mysqli_query($conn, $sql3)) {
+    header('Location: ../vista/dashboard.php');
+} else {
+    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
 
-// Muestra los datos del objeto Usuario
-echo "<br>Usuario registrado:<br>";
-echo "Correo: " . $usuario->getCorreo() . "<br>";
-echo "Contraseña: " . $usuario->getPassword() . "<br>";
-echo "Nombre: " . $usuario->getNombre() . "<br>";
-echo "Institución: " . $usuario->getEmpresa() . "<br>";
-echo "Sistemas registrados: " . count($usuario->getSolicitudes()) . "<br>";
+?>

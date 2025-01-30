@@ -1,9 +1,13 @@
 <?php
+include('conexion.php');
 session_start();
+connect();
+
+
+$sql = "SELECT * FROM usuarios where correo = '$username'";
+$result = mysqli_query($conn, $sql);
 
 // Usuario y contraseña predefinidos
-$usuario = 'admin@hot.com';
-$contraseña = '1234';
 
 // Verificar si se envió el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -11,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Comprobar las credenciales
-    if ($username === $usuario && $password === $contraseña) {
+    if ($result->num_rows > 0) {
         // Guardar el nombre de usuario en la sesión
         $_SESSION['username'] = $username;
         header('Location: ../vista/dashboard.php'); // Redirigir a la página de inicio

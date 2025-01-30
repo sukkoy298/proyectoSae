@@ -1,4 +1,5 @@
 <?php
+
 class Sistema {
     //propiedades
     public $nombre; //de la institucion
@@ -32,6 +33,13 @@ class Sistema {
         $this -> programador = "Sin asignar";
         $this -> status = "En espera";
     }
+
+    public function aceptarSistema($programador) {
+        $this -> programador = $programador;
+        $this -> status = "Aceptado";
+    }
+
+
 
     public function getNombre() {
         return $this -> nombre;
