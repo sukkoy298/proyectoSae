@@ -29,16 +29,16 @@
                     <li class="nav-item">
 
                         <!--enlaces a otras partes de la pagina-->
-                        <a class="nav-link active" href="">inicio</a>
+                        <a class="nav-link active" href="#inicio">inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="">proyectos</a>
+                        <a class="nav-link active" href="vista/proyectos.php">proyectos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">sobre nosotros</a>
+                        <a class="nav-link" href="#sobre-nosotros">sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">contactos</a>
+                        <a class="nav-link" href="#contactos">contactos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-success" href="vista/inicioSession.php">iniciar sesion</a>
@@ -50,7 +50,7 @@
 
     <!-- encabezado -->
 
-    <section>
+    <section id="inicio">
         <div class="encabezado container-fluid">
             <div class="row">
                 <div class="titulo col-8 text-left">
@@ -155,8 +155,10 @@
 
     <!--conocenos-->
 
-    <section class="conocenos container d-flex justify-content-center align-items-center">
+    <section class="conocenos container d-flex justify-content-center align-items-center" id="sobre-nosotros">
         <div class="col-11">
+            <h4>ACERCA DE NOSOTROS</h4>
+            <br>
             <div class="row">
                 <div class="conocenos_imagen d-block d-lg-none col-12 col-md-4">
                     <img src="vista/imagenes/vvv.jpg" alt="imagen de aplicacion" class="img-fluid">
@@ -179,14 +181,11 @@
         </div>
     </section>
 
-    <!--acerca de nosotros-->
-
     <section class="acerca container d-flex justify-content-center align-items-center">
         <div class="col-11">
             <div class="row">
 
                 <div class="acerca_descripcion col-12 col-md-8">
-                    <h4>ACERCA DE NOSOTROS</h4>
                     <h1>Tecnología que Impulsa el Aprendizaje</h1>
                     <p>En Sistemas SAE, nos dedicamos a proporcionar soluciones tecnológicas de vanguardia,
                         especialmente en el ámbito de la gestión académica. Nuestra misión es transformar la forma en
@@ -201,6 +200,47 @@
                 </div>
                 <div class="acerca_imagen col-12 col-md-4">
                     <img src="vista/imagenes/aplicacion.png" alt="imagen de aplicacion" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--contactos-->
+
+    <section>
+        <div class="contactos container-fluid d-flex align-content-center justify-content-center" id="contactos">
+            <div class="col-12">
+                <div class="row d-flex justify-content-center">
+                    <div class="t_contacto col-6 col-sm-3">
+                        <img src="vista/imagenes/github.png" alt="github">
+                        <div class="opc">
+                            <p>Github:</p>
+                            <p>https://github.com/R4fael
+                                Alvarez/SAE</p>
+                        </div>
+                    </div>
+                    <div class="t_contacto col-6 col-sm-3">
+                        <img src="vista/imagenes/circulo.png" alt="telefono">
+                        <div class="opc">
+                            <p>Soporte Tecnico:</p>
+                            <p>0412-5551041</p>
+                        </div>
+                    </div>
+                    <div class="t_contacto col-6 col-sm-3">
+                        <img src="vista/imagenes/gmail.png" alt="gmail">
+                        <div class="opc">
+                            <p>Enviar Comentarios:</p>
+                            <p>usuario@gmail.com</p>
+                        </div>
+
+                    </div>
+                    <div class="t_contacto col-6 col-sm-3" id="whatsapp">
+                        <img src="vista/imagenes/whatsapp.png" alt="whatsapp">
+                        <div class="opc">
+                            <p>Whatsapp:</p>
+                            <p>+58 412-5551041</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

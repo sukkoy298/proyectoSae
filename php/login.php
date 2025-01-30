@@ -14,11 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($username === $usuario && $password === $contraseña) {
         // Guardar el nombre de usuario en la sesión
         $_SESSION['username'] = $username;
-        header('Location: dashboard.php'); // Redirigir a la página de inicio
+        header('Location: ../vista/dashboard.php'); // Redirigir a la página de inicio
         exit();
     } else {
-        echo "<script>alert('Usuario o contraseña incorrectos');</script>"; // Mensaje de error
-        header('Location: ../vista/casa.php'); // Redirigir a la página de inicio
+        echo "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
     }
 }
-?>

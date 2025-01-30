@@ -1,3 +1,1 @@
-<?php 
-include("vista/casa.php");
-?>
+<?php include("vista/casa.php");
