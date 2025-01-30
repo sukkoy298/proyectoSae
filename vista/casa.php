@@ -2,19 +2,11 @@
 <html lang="en">
 
 <head>
-    <!-- Meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descripción del sitio web SAE">
-
-    <!-- Title -->
     <title>SAE</title>
-
-    <!-- CSS Stylesheets -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="vista/css_1/style.css">
-
-    <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </head>
@@ -31,7 +23,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbar-toggler">
                 <a class="navbar-brand" href="#">
-                    <img src="img/logo_h.png" alt="SAE" width="150px">
+                    <img src="vista/imagenes/logo_h.png" alt="SAE" width="150px">
                 </a>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center">
                     <li class="nav-item">
@@ -68,32 +60,32 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="cuadrado">
-                                <img class="img-fluid" src="img/diseño.png" alt="">
+                                <img class="img-fluid" src="vista/imagenes/diseño.png" alt="">
                                 <p>Diseño</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="cuadrado">
-                                <img class="img-fluid" src="img/plan-estrategico.png" alt="">
+                                <img class="img-fluid" src="vista/imagenes/plan-estrategico.png" alt="">
                                 <p>Usabilidad</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="cuadrado">
-                                <img class="img-fluid" src="img/development.png" alt="">
+                                <img class="img-fluid" src="vista/imagenes/development.png" alt="">
                                 <p>Desarrollo</p>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="cuadrado">
-                                <img class="img-fluid" src="img/depuracion.png" alt="">
+                                <img class="img-fluid" src="vista/imagenes/depuracion.png" alt="">
                                 <p>Test</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="logo col-4 d-block d-md-none d-flex justify-content-center align-items-center">
-                    <img src="img/logo_h.png" class="img-fluid" alt="Imagen para móviles">
+                <div class="logo col-4 d-block d-md-none d-flex justify-content-center align-items-center"">
+                    <img src=" vista/imagenes/logo_h.png" class="img-fluid" alt="Imagen para móviles">
                 </div>
             </div>
         </div>
@@ -123,7 +115,7 @@
             <div class="row">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta text-left">
-                        <img class="img-fluid" src="vista/img/comprobar.png" alt="1">
+                        <img class="img-fluid" src="vista/imagenes/comprobar.png" alt="1">
                         <a href="">Diseño Asombroso</a>
                         <p>Nuestros diseños destacan por su creatividad y funcionalidad, adaptándose a tus necesidades.
                         </p>
@@ -132,7 +124,7 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta">
-                        <img class="img-fluid" src="vista/img/comprobar.png" alt="2">
+                        <img class="img-fluid" src="vista/imagenes/comprobar.png" alt="2">
                         <a href="">Redacción Publicitaria</a>
                         <p>Creamos contenido atractivo y persuasivo que conecta con tu audiencia y fortalece tu marca.
                         </p>
@@ -141,7 +133,7 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta">
-                        <img class="img-fluid" src="vista/img/comprobar.png" alt="3">
+                        <img class="img-fluid" src="vista/imagenes/comprobar.png" alt="3">
                         <a href="">Desarrollo</a>
                         <p>Desarrollamos soluciones tecnológicas personalizadas, optimizando procesos y mejorando la
                             eficiencia.</p>
@@ -150,7 +142,7 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta">
-                        <img class="img-fluid" src="vista/img/comprobar.png" alt="4">
+                        <img class="img-fluid" src="vista/imagenes/comprobar.png" alt="4">
                         <a href="">Soporte 24/7</a>
                         <p>Ofrecemos asistencia continua para asegurar que todas tus necesidades sean atendidas siempre.
                         </p>
@@ -167,7 +159,7 @@
         <div class="col-11">
             <div class="row">
                 <div class="conocenos_imagen d-block d-lg-none col-12 col-md-4">
-                    <img src="vista/img/vvv.jpg" alt="imagen de aplicacion" class="img-fluid">
+                    <img src="vista/imagenes/vvv.jpg" alt="imagen de aplicacion" class="img-fluid">
                 </div>
                 <div class="conocenos_descripcion col-12 col-md-8">
                     <h3>Sistemas SAE: Impulsando Tu Potencial con Tecnología de Vanguardia</h3>
@@ -181,7 +173,7 @@
                     <a href="" class="leer_mas">leer mas</a>
                 </div>
                 <div class="conocenos_imagen d-none d-lg-block col-12 col-md-4">
-                    <img src="vista/img/vvv.jpg" alt="imagen de aplicacion" class="img-fluid">
+                    <img src="vista/imagenes/vvv.jpg" alt="imagen de aplicacion" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -208,7 +200,7 @@
                     <a href="" class="leer_mas">leer mas</a>
                 </div>
                 <div class="acerca_imagen col-12 col-md-4">
-                    <img src="vista/img/aplicacion.png" alt="imagen de aplicacion" class="img-fluid">
+                    <img src="vista/imagenes/aplicacion.png" alt="imagen de aplicacion" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -222,7 +214,7 @@
                 <div class="col-lg-3 mb-3">
                     <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/"
                         aria-label="Bootstrap">
-                        <img src="img/logo_h.png" width="150px" class="d-block me-2"
+                        <img src="vista/imagenes/logo_h.png" width="150px" class="d-block me-2"
                             viewBox="0 0 118 94" role="img">
                         <title>Bootstrap</title>
                         <path fill-rule="evenodd" clip-rule="evenodd"

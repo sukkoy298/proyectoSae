@@ -2,12 +2,12 @@
 session_start();
 
 // Usuario y contraseña predefinidos
-$usuario = 'admin';
+$usuario = 'admin@hot.com';
 $contraseña = '1234';
 
 // Verificar si se envió el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
+    $username = $_POST['correo'];
     $password = $_POST['password'];
 
     // Comprobar las credenciales
@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('Location: dashboard.php'); // Redirigir a la página de inicio
         exit();
     } else {
-        echo "<div class='alert alert-danger'>Usuario o contraseña incorrectos.</div>";
+        echo "<script>alert('Usuario o contraseña incorrectos');</script>"; // Mensaje de error
+        header('Location: ../vista/casa.php'); // Redirigir a la página de inicio
     }
 }
 ?>
