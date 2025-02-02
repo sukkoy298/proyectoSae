@@ -70,6 +70,7 @@ class AuthController {
     }
 }
 
+
 // Crear una instancia del controlador y llamar al método register
 $authController = new AuthController();
 
@@ -78,5 +79,9 @@ if (isset($_POST['login'])){
 }else{
    $authController->register();
 }
-
+if (isset($_GET['logout'])) {
+    session_start();
+    session_destroy();
+    header("Location: ../index.php");
+}
 ?>

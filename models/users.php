@@ -19,6 +19,7 @@ class User {
         $this->empresa = $empresa;
         $this->ciudad = $ciudad;
     }
+    
 
     public function save() {
         $sql = "INSERT INTO users (name, email, password, empresa, ciudad) VALUES ('$this->name', '$this->email', '$this->password', '$this->empresa', '$this->ciudad')";
