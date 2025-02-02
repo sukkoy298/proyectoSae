@@ -31,27 +31,42 @@ class AuthController {
     }
     public function login(){
         if (isset($_POST['email']) && isset($_POST['password'])) {
-                // Autenticación de usuario
-                $email = $_POST['email'];
-                $password = $_POST['password'];
+            // Autenticación de usuario
+            $email = $_POST['email'];
+            $password = $_POST['password'];
 
-                // Validar los datos 
-                if (empty($email) || empty($password)) {
-                    echo "Email y contraseña son obligatorios.";
-                    return;
-                }
-
-                // Comprobar si el usuario existe
-                $user = User::login($email, $password);
-                if ($user) {
-                    echo "Autenticación exitosa.";
-                } else {
-                    echo "Email o contraseña incorrectos.";
-                }
-            } else {
-                echo "Datos insuficientes.";
+            // Validar los datos 
+            if (empty($email) || empty($password)) {
+            echo "Email y contraseña son obligatorios.";
+            return;
             }
-    
+
+            // Comprobar si el usuario existe
+            $user = User::login($email, $password);
+            if ($user) {
+            // Iniciar sesión
+            session_start();
+            $_SESSION['user_id'] = $user->getId();
+            $_SESSION['user_email'] = $user->getEmail();
+            $_SESSION['user_empresa'] = $user->getEmpresa();
+            $_SESSION['user_ciudad'] = $user->getCiudad();
+
+            // Redirigir según el rol del usuario
+            if ($user->getEmail() === 'admin@example.com') {
+                header("Location: ../views/admin_dashboard.php");
+            } else {
+                $name = $user->getName();
+                $empresa = $user->getEmpresa();
+                $ciudad = $user->getCiudad();
+                header("Location: ../views/dashboard.php?name=$name&empresa=$empresa&ciudad=$ciudad");
+            }
+            exit();
+            } else {
+            echo "Email o contraseña incorrectos.";
+            }
+        } else {
+            echo "Datos insuficientes.";
+        }
     }
 }
 
