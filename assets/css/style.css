@@ -135,6 +135,11 @@ body {
   line-height: 1.5;
 }
 
+.acerca_descripcion {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 /*---------------------------------conocenos-------------------------------*/
 
 .conocenos {
@@ -172,7 +177,41 @@ body {
   border-radius: 13px;
 }
 
-/*--------------------------------footer-----------------------------------*/
+/*--------------------------------contactos-----------------------------------*/
+
+.contactos {
+  padding: 2rem;
+}
+
+.t_contacto {
+  background-color: rgb(16, 141, 201);
+  border-radius: 3rem;
+  width: 15rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.t_contacto img {
+  width: 5rem;
+  margin: 2rem;
+  margin-top: 0.3rem;
+  border: 5px, solid, white;
+  border-radius: 50%;
+}
+
+.t_contacto p {
+  color: white;
+  font-size: 1rem;
+}
+
+.t_contacto a {
+  text-decoration: none;
+  color: black;
+}
 
 /*-------------------------------media query's-----------------------------*/
 
@@ -282,5 +321,40 @@ body {
     border-top-right-radius: 0;
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 0;
+  }
+}
+
+@media (max-width: 727px) {
+  .t_contacto {
+    width: 100%;
+    background-color: white !important;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0.5rem;
+  }
+
+  .t_contacto img {
+    margin-top: none !important;
+    border: 5px, solid, rgb(192, 191, 191);
+    border-radius: 50%;
+  }
+
+  .t_contacto p {
+    color: black;
+  }
+}
+
+@media (max-width: 321px) {
+  .opc {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 1063px) and (min-width: 810px) {
+  #whatsapp {
+    display: none;
   }
 }
