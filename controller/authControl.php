@@ -26,7 +26,11 @@ class AuthController {
                 } else {
                     echo "Error al registrar el usuario.";
                 }
-            } elseif (isset($_POST['email']) && isset($_POST['password'])) {
+            }
+        }
+    }
+    public function login(){
+        if (isset($_POST['email']) && isset($_POST['password'])) {
                 // Autenticación de usuario
                 $email = $_POST['email'];
                 $password = $_POST['password'];
@@ -47,11 +51,17 @@ class AuthController {
             } else {
                 echo "Datos insuficientes.";
             }
-        }
+    
     }
 }
 
 // Crear una instancia del controlador y llamar al método register
 $authController = new AuthController();
-$authController->register();
+
+if (isset($_POST['login'])){
+    $authController->login();
+}else{
+   $authController->register();
+}
+
 ?>
