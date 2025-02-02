@@ -15,7 +15,7 @@ class User {
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password; 
         $this->empresa = $empresa;
         $this->ciudad = $ciudad;
     }
@@ -28,6 +28,36 @@ class User {
         } else {
             return false;
         }
+    }
+
+    public static function login($email, $password) {
+        $conn = connect();
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $query = mysqli_query($conn, $sql);
+        $user = mysqli_fetch_assoc($query);
+
+        if ($user && $password === $user['password']) { // Comparar la contraseña sin hash
+            return new User($user['id'], $user['name'], $user['email'], $user['password'], $user['empresa'], $user['ciudad']);
+        } else {
+            return false;
+        }
+    }
+
+    public static function findByEmail($email) {
+        $conn = connect();
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+            return new User($row['id'], $row['name'], $row['email'], $row['password'], $row['empresa'], $row['ciudad']);
+        } else {
+            return null;
+        }
+    }
+
+    public function getPassword() {
+        return $this->password;
     }
 }
 ?>

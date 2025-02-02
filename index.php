@@ -42,7 +42,7 @@
                         <a class="nav-link" href="contacto.html">contactos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-success" href="vista/inicioSession.php">iniciar sesion</a>
+                        <a class="nav-link text-success" href="views/login.php">iniciar sesion</a>
                     </li>
                 </ul>
             </div>
