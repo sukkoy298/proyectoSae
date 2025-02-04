@@ -29,7 +29,7 @@ body {
 /*-------------------------------section (encabezado)-----------------------------*/
 
 .encabezado {
-  background-image: url("../imagenes/1_1.jpg");
+  background-image: url("/assets/img/1_1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
