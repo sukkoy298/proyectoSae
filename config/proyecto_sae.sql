@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `proyectos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(20) NOT NULL,
   `empresa` varchar(20) NOT NULL,
   `ciudad` varchar(20) NOT NULL,
   `fecha` varchar(20) NOT NULL,
