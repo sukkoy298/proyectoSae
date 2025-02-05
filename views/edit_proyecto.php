@@ -16,7 +16,7 @@ $isAdmin = $_SESSION['user_role'] === 'admin';
     <div class="container mt-5">
         <h2>Editar Proyecto</h2>
         <form action="update_proyecto.php" method="POST">
-            <div class="form-group">
+            <div class="form-group">      
                 <label for="nombre">Nombre del Proyecto</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>

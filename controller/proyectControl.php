@@ -55,6 +55,24 @@ class ProyectController {
         }
     }
 
+    public function buscarProyecto() {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            if (isset($_GET['empresa']) && isset($_GET['ciudad'])) {
+                $empresa = $_GET['empresa'];
+                $ciudad = $_GET['ciudad'];
+
+                // Buscar proyectos por empresa y ciudad
+                $proyectos = Proyecto::buscarPorEmpresaYCiudad($empresa, $ciudad);
+
+                if ($proyectos) {
+                    echo json_encode($proyectos);
+                } else {
+                    echo "No se encontraron proyectos.";
+                }
+            }
+        }
+    }
+
     
 }
 

@@ -69,6 +69,20 @@ class Proyecto {
         return $proyectos;
     }
 
+    public static function buscarPorEmpresaYCiudad($empresa, $ciudad) {
+
+        $conn = connect();
+        $sql = "SELECT * FROM proyectos WHERE empresa = '$empresa' AND ciudad = '$ciudad'";
+        $result = mysqli_query($conn, $sql);
+
+        $proyectos = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $proyectos[] = $row;
+        }
+
+        return $proyectos;
+    }
+
     public function getId() {
         return $this->id;
     }
