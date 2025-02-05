@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
@@ -30,19 +30,26 @@
                     <li class="nav-item">
 
                         <!--enlaces a otras partes de la pagina-->
-                        <a class="nav-link active" href="">inicio</a>
+                        <a class="nav-link active" href="#encabezado">inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="">proyectos</a>
+                        <a class="nav-link active" href="#">proyectos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">contactos</a>
+                        <a class="nav-link" href="views/contacto.php">contactos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-success" href="views/login.php">iniciar sesion</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="container ">
+                            <div>
+                                <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="views/register.php">Registrarme</a></button>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -52,7 +59,7 @@
     <!-- encabezado -->
 
     <section>
-        <div class="encabezado container-fluid">
+        <div class="encabezado container-fluid" id="#encabezado">
             <div class="row">
                 <div class="titulo col-8 text-left">
                     <h1>Tu Socio en Desarrollo de Sistemas</h1>
@@ -100,14 +107,6 @@
             <p>En nuestra empresa, impulsamos el futuro de la educación con tecnología avanzada. Creamos sistemas de
                 gestión académica eficientes que simplifican tareas administrativas y mejoran la experiencia educativa.
                 Facilitamos un entorno de aprendizaje adaptable a la era digital.</p>
-        </div>
-
-        <div class="container ">
-            <div class="row mt-4 text-center">
-                <div>
-                    <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="views/register.php">Registrarme</a></button>
-                </div>
-            </div>
         </div>
 
         <!--descripcion-cards-->

@@ -1,7 +1,8 @@
 <?php
 include '../config/db.php';
 
-class Proyecto {
+class Proyecto
+{
     private $conn;
     private $id;
     private $empresa;
@@ -12,7 +13,8 @@ class Proyecto {
     private $status;
     private $requisitos;
 
-    public function __construct($id, $empresa, $ciudad, $tipo, $fecha, $programador, $status, $requisitos) {
+    public function __construct($id = null, $empresa = null, $ciudad = null, $tipo = null, $fecha = null, $programador = null, $status = null, $requisitos = null)
+    {
         $this->conn = connect();
         $this->id = $id;
         $this->empresa = $empresa;
@@ -24,7 +26,8 @@ class Proyecto {
         $this->requisitos = $requisitos;
     }
 
-    public function save() {
+    public function save()
+    {
         $sql = "INSERT INTO proyectos (empresa, ciudad, tipo, fecha, programador, status, requisitos) VALUES ('$this->empresa', '$this->ciudad', '$this->tipo', '$this->fecha', '$this->programador', '$this->status', '$this->requisitos')";
 
         if (mysqli_query($this->conn, $sql)) {
@@ -34,7 +37,8 @@ class Proyecto {
         }
     }
 
-    public function editar() {
+    public function editar()
+    {
         $sql = "UPDATE proyectos SET empresa = '$this->empresa', ciudad = '$this->ciudad', tipo = '$this->tipo', fecha = '$this->fecha', programador = '$this->programador', status = '$this->status', requisitos = '$this->requisitos' WHERE id = '$this->id'";
 
         if (mysqli_query($this->conn, $sql)) {
@@ -44,7 +48,8 @@ class Proyecto {
         }
     }
 
-    public static function obtenerProyectoPorId($id) {
+    public static function obtenerProyectoPorId($id)
+    {
         $conn = connect();
         $sql = "SELECT * FROM proyectos WHERE id = '$id'";
         $result = mysqli_query($conn, $sql);
@@ -56,7 +61,8 @@ class Proyecto {
         }
     }
 
-    public static function obtenerTodosLosProyectos($empresa, $ciudad) {
+    public static function obtenerTodosLosProyectos($empresa, $ciudad)
+    {
         $conn = connect();
         $sql = "SELECT * FROM proyectos WHERE empresa = '$empresa' AND ciudad = '$ciudad'";
         $result = mysqli_query($conn, $sql);
@@ -69,65 +75,79 @@ class Proyecto {
         return $proyectos;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getEmpresa() {
+    public function getEmpresa()
+    {
         return $this->empresa;
     }
 
-    public function getCiudad() {
+    public function getCiudad()
+    {
         return $this->ciudad;
     }
 
-    public function getTipo() {
+    public function getTipo()
+    {
         return $this->tipo;
     }
 
-    public function getFecha() {
+    public function getFecha()
+    {
         return $this->fecha;
     }
 
-    public function getProgramador() {
+    public function getProgramador()
+    {
         return $this->programador;
     }
 
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
-    public function getRequisitos() {
+    public function getRequisitos()
+    {
         return $this->requisitos;
     }
 
 
-    public function setEmpresa($empresa) {
+    public function setEmpresa($empresa)
+    {
         $this->empresa = $empresa;
     }
 
-    public function setCiudad($ciudad) {
+    public function setCiudad($ciudad)
+    {
         $this->ciudad = $ciudad;
     }
 
-    public function setTipo($tipo) {
+    public function setTipo($tipo)
+    {
         $this->tipo = $tipo;
     }
 
-    public function setFecha($fecha) {
+    public function setFecha($fecha)
+    {
         $this->fecha = $fecha;
     }
 
-    public function setProgramador($programador) {
+    public function setProgramador($programador)
+    {
         $this->programador = $programador;
     }
 
-    public function setStatus($status) {
+    public function setStatus($status)
+    {
         $this->status = $status;
     }
 
-    public function setRequisitos($requisitos) {
+    public function setRequisitos($requisitos)
+    {
         $this->requisitos = $requisitos;
     }
 }
-?>
