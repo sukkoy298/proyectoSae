@@ -44,6 +44,16 @@ class Proyecto {
         }
     }
 
+    public function eliminar() {
+        $sql = "DELETE FROM proyectos WHERE id = '$this->id'";
+
+        if (mysqli_query($this->conn, $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function obtenerProyectoPorId($id) {
         $conn = connect();
         $sql = "SELECT * FROM proyectos WHERE id = '$id'";

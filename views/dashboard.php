@@ -50,7 +50,7 @@
                         echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                         echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                         echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn btn-warning">Editar</a>';
-                        echo '<a href="#" class="btn btn-danger">Eliminar</a>';
+                        echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-danger">Eliminar</a>';
                         echo '</div>';
                         echo '</div>';
                     }

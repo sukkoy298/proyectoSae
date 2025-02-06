@@ -74,6 +74,24 @@ class ProyectController {
             }
         }
     }
+
+    public function deleteProyecto() {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $proyecto = Proyecto::obtenerProyectoPorId($id);
+
+            if ($proyecto) {
+                if ($proyecto->eliminar()) {
+                    header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
+                    exit();
+                } else {
+                    echo "Error al eliminar el proyecto.";
+                }
+            } else {
+                echo "Proyecto no encontrado.";
+            }
+        }
+    }
 }
 
 // Crear una instancia del controlador y llamar al método correspondiente
@@ -82,5 +100,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'registrar') {
     $proyectController->registrarProyecto();
 } elseif (isset($_POST['action']) && $_POST['action'] === 'editar') {
     $proyectController->editarProyecto();
+}elseif (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
+    $proyectController->deleteProyecto();
 }
 ?>
