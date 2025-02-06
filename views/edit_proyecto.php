@@ -65,8 +65,9 @@ if ($proyecto) {
                 <label for="status">Estado:</label>
                 <select class="form-control" id="status" name="status" required>
                     <option value="En Espera" <?php if ($status == 'En Espera') echo 'selected'; ?>>En Espera</option>
-                    <option value="En Progreso" <?php if ($status == 'En Progreso') echo 'selected'; ?>>En Progreso</option>
-                    <option value="Completado" <?php if ($status == 'Completado') echo 'selected'; ?>>Completado</option>
+                    <option value="Asignado" <?php if ($status == 'Asignado') echo 'selected'; ?>>Asignado</option>
+                    <option value="En Proceso" <?php if ($status == 'En Proceso') echo 'selected'; ?>>En Proceso</option>
+                    <option value="Terminado" <?php if ($status == 'Terminado') echo 'selected'; ?>>Terminado</option>
                 </select>
             </div>
             <div class="form-group">
