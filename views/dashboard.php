@@ -33,13 +33,13 @@
     </div>
     <div class="container mt-5">
         <h2>Proyectos</h2>
-        <a class="btn btn-success" href="agregar_proyecto.php?id=<?php echo htmlspecialchars($id); ?>">Agregar Proyecto</a>
+        <a class="btn btn-success" href="agregar_proyecto.php?empresa=<?php echo htmlspecialchars($empresa); ?>&ciudad=<?php echo htmlspecialchars($ciudad); ?>">Agregar Proyecto</a>
         <div class="row">
             <div class="col-md-3">
             <h3>En Espera</h3>
             <?php
             // Obtener proyectos en espera
-            $sql = "SELECT * FROM proyectos WHERE estado = 'En Espera'";
+            $sql = "SELECT * FROM proyectos WHERE status = 'En Espera'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -63,7 +63,7 @@
             <h3>Asignado</h3>
             <?php
             // Obtener proyectos en espera
-            $sql2 = "SELECT * FROM proyectos WHERE estado = 'Asignado'";
+            $sql2 = "SELECT * FROM proyectos WHERE status = 'Asignado'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -89,7 +89,7 @@
             <h3>En Proceso</h3>
             <?php
             // Obtener proyectos en espera
-            $sql = "SELECT * FROM proyectos WHERE estado = 'En Proceso'";
+            $sql = "SELECT * FROM proyectos WHERE status = 'En Proceso'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -115,7 +115,7 @@
             <h3>Terminado</h3>
             <?php
             // Obtener proyectos en espera
-            $sql3 = "SELECT * FROM proyectos WHERE estado = 'Terminado'";
+            $sql3 = "SELECT * FROM proyectos WHERE status = 'Terminado'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
