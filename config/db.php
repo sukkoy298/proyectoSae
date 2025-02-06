@@ -10,6 +10,7 @@ function connect(){
     $conn = mysqli_connect($servername, $username, $password, $db);
 
     mysqli_select_db($conn, $db);
+    
     return $conn;
 };
 

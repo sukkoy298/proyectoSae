@@ -1,5 +1,5 @@
 <?php
-include '../config/db.php';
+require_once '../config/db.php';
 
 class Proyecto {
     private $conn;

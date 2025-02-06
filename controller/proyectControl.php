@@ -74,8 +74,6 @@ class ProyectController {
             }
         }
     }
-
-    
 }
 
 // Crear una instancia del controlador y llamar al método correspondiente
