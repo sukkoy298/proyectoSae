@@ -24,6 +24,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
                 </form>
+                <a href="register.php" class="btn btn-secondary btn-block mt-3">Registrarse</a>
             </div>
         </div>
     </div>

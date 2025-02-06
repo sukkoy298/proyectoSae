@@ -18,7 +18,8 @@ class ProyectController {
                 // Crear una instancia de Proyecto y guardar los datos
                 $proyecto = new Proyecto($id, $empresa, $ciudad, $tipo, $fecha, $programador, $status, $requisitos);
                 if ($proyecto->save()) {
-                    echo "Proyecto registrado exitosamente.";
+                    header("Location: ../views/dashboard.php?empresa=$empresa&ciudad=$ciudad");
+                    exit();
                 } else {
                     echo "Error al registrar el proyecto.";
                 }
@@ -44,7 +45,8 @@ class ProyectController {
                     $proyecto->setRequisitos($_POST['requisitos']);
 
                     if ($proyecto->editar()) {
-                        echo "Proyecto actualizado exitosamente.";
+                        header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
+                        exit();
                     } else {
                         echo "Error al actualizar el proyecto.";
                     }

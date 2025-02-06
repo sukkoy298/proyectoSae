@@ -12,8 +12,15 @@
         ?>
     <div class="container mt-5">
         <h1 class="mb-4">Registrar Proyecto</h1>
-        <form action="../controllers/proyectControl.php" method="POST">
+        <form action="../controller/proyectControl.php" method="POST">
             <input type="hidden" name="action" value="registrar">
+            <input type="hidden" name="empresa" value="<?php echo $empresa; ?>">
+            <input type="hidden" name="ciudad" value="<?php echo $ciudad; ?>">
+            <input type="hidden" name="programador" value="Sin asignar">
+            <input type="hidden" name="status" value="En Espera">
+            <input type="hidden" name="id" value="null">
+            <input type="hidden" name="fecha" value="<?php echo date('Y-m-d'); ?>">
+            
             <div class="form-group">
                 <label for="empresa">Empresa:</label>
                 <input type="text" class="form-control" id="empresa" name="empresa" value="<?php echo $empresa; ?>" readonly>
