@@ -1,9 +1,17 @@
 <?php include("layouts/header.html") ?>
-<div class="contacto container mt-5">
-    <h3 class="text-left">Contacto</h3>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+</head>
+<body>
+    <div class="contacto container mt-5">
     <div class="row mt-4">
         <div class="col-md-6">
-            <h3>Información de la Empresa</h3>
+            <h2>Información de la Empresa</h2>
             <p>Nombre de la Empresa: B y C Computacion.</p>
             <p>Dirección: AV 20 ENTRE CALLES 39 Y 40, Barquisimeto 3001, Lara</p>
             <p>Teléfono: +123 456 7890</p>
@@ -33,6 +41,9 @@
     </div>
 
 </div>
+
+</body>
+</html>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

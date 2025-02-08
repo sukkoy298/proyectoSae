@@ -62,6 +62,10 @@ class User
         }
     }
 
+    public function isAdmin() {
+        return $this->email === 'admin@SAE.com';
+    }
+
     public static function findByEmail($email)
     {
         $conn = connect();

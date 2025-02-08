@@ -21,7 +21,7 @@ $id = isset($_GET['id']);
 ?>
 <?php include("layouts/header_dashboard.html") ?>
 <div class="container mt-5">
-    <h1>Bienvenido <?php echo htmlspecialchars($nombre); ?> de la empresa <?php echo htmlspecialchars($empresa); ?> - <?php echo htmlspecialchars($ciudad); ?></h1>
+    <h1>Bienvenido Administrador SAE</h1>
 </div>
 <div class="container mt-5">
     <h2>Proyectos</h2>
@@ -30,13 +30,15 @@ $id = isset($_GET['id']);
             <h3>En Espera</h3>
             <?php
             // Obtener proyectos en espera
-            $sql = "SELECT * FROM proyectos WHERE ciudad = '$ciudad' AND empresa = '$empresa' AND status = 'En Espera'";
+            $sql = "SELECT * FROM proyectos WHERE status = 'En Espera'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
+                    echo '<p class="card-text">Empresa: ' . htmlspecialchars($row["empresa"]) . '</p>';
+                    echo '<p class="card-text">Ciudad: ' . htmlspecialchars($row["ciudad"]) . '</p>';
                     echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
                     echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
@@ -44,7 +46,7 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
                     echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
@@ -59,13 +61,15 @@ $id = isset($_GET['id']);
             <h3>Asignado</h3>
             <?php
             // Obtener proyectos asignados
-            $sql2 = "SELECT * FROM proyectos WHERE ciudad = '$ciudad' AND empresa = '$empresa' AND status = 'Asignado'";
+            $sql2 = "SELECT * FROM proyectos WHERE status = 'Asignado'";
             $result2 = $conn->query($sql2);
 
             if ($result2->num_rows > 0) {
                 while ($row = $result2->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
+                    echo '<p class="card-text">Empresa: ' . htmlspecialchars($row["empresa"]) . '</p>';
+                    echo '<p class="card-text">Ciudad: ' . htmlspecialchars($row["ciudad"]) . '</p>';
                     echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
                     echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
@@ -73,7 +77,7 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
                     echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
@@ -88,13 +92,15 @@ $id = isset($_GET['id']);
             <h3>En Proceso</h3>
             <?php
             // Obtener proyectos en proceso
-            $sql3 = "SELECT * FROM proyectos WHERE ciudad = '$ciudad' AND empresa = '$empresa' AND status = 'En Proceso'";
+            $sql3 = "SELECT * FROM proyectos WHERE status = 'En Proceso'";
             $result3 = $conn->query($sql3);
 
             if ($result3->num_rows > 0) {
                 while ($row = $result3->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
+                    echo '<p class="card-text">Empresa: ' . htmlspecialchars($row["empresa"]) . '</p>';
+                    echo '<p class="card-text">Ciudad: ' . htmlspecialchars($row["ciudad"]) . '</p>';
                     echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
                     echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
@@ -102,7 +108,7 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
                     echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
@@ -117,13 +123,15 @@ $id = isset($_GET['id']);
             <h3>Terminado</h3>
             <?php
             // Obtener proyectos terminados
-            $sql4 = "SELECT * FROM proyectos WHERE ciudad = '$ciudad' AND empresa = '$empresa' AND status = 'Terminado'";
+            $sql4 = "SELECT * FROM proyectos WHERE status = 'Terminado'";
             $result4 = $conn->query($sql4);
 
             if ($result4->num_rows > 0) {
                 while ($row = $result4->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
+                    echo '<p class="card-text">Empresa: ' . htmlspecialchars($row["empresa"]) . '</p>';
+                    echo '<p class="card-text">Ciudad: ' . htmlspecialchars($row["ciudad"]) . '</p>';
                     echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
                     echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
@@ -131,7 +139,7 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
                     echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
