@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/bootstrap-grid.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
@@ -30,19 +30,23 @@
                     <li class="nav-item">
 
                         <!--enlaces a otras partes de la pagina-->
-                        <a class="nav-link active" href="">inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">proyectos</a>
+                        <a class="nav-link active" href="#encabezado">inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">sobre nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">contactos</a>
+                        <a class="nav-link" href="views/contacto.php">contactos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-success" href="views/login.php">iniciar sesion</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="container ">
+                            <div>
+                                <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="views/register.php">Registrarme</a></button>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -52,7 +56,7 @@
     <!-- encabezado -->
 
     <section>
-        <div class="encabezado container-fluid">
+        <div class="encabezado container-fluid" id="#encabezado">
             <div class="row">
                 <div class="titulo col-8 text-left">
                     <h1>Tu Socio en Desarrollo de Sistemas</h1>
@@ -102,14 +106,6 @@
                 Facilitamos un entorno de aprendizaje adaptable a la era digital.</p>
         </div>
 
-        <div class="container ">
-            <div class="row mt-4 text-center">
-                <div>
-                    <button type="button" class="btn btn-success"><a class="text-decoration-none text-white" href="views/register.php">Registrarme</a></button>
-                </div>
-            </div>
-        </div>
-
         <!--descripcion-cards-->
 
         <div class="cards container">
@@ -117,7 +113,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta text-left">
                         <img class="img-fluid" src="assets/img/comprobar.png" alt="1">
-                        <a href="">Diseño Asombroso</a>
+                        <a>Diseño Asombroso</a>
                         <p>Nuestros diseños destacan por su creatividad y funcionalidad, adaptándose a tus necesidades.
                         </p>
                     </div>
@@ -126,7 +122,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta">
                         <img class="img-fluid" src="assets/img/comprobar.png" alt="2">
-                        <a href="">Redacción Publicitaria</a>
+                        <a>Redacción Publicitaria</a>
                         <p>Creamos contenido atractivo y persuasivo que conecta con tu audiencia y fortalece tu marca.
                         </p>
                     </div>
@@ -135,7 +131,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta">
                         <img class="img-fluid" src="assets/img/comprobar.png" alt="3">
-                        <a href="">Desarrollo</a>
+                        <a>Desarrollo</a>
                         <p>Desarrollamos soluciones tecnológicas personalizadas, optimizando procesos y mejorando la
                             eficiencia.</p>
                     </div>
@@ -144,7 +140,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="carta">
                         <img class="img-fluid" src="assets/img/comprobar.png" alt="4">
-                        <a href="">Soporte 24/7</a>
+                        <a>Soporte 24/7</a>
                         <p>Ofrecemos asistencia continua para asegurar que todas tus necesidades sean atendidas siempre.
                         </p>
                     </div>
@@ -171,7 +167,7 @@
                         con los estándares más altos de funcionalidad y usabilidad. Con un equipo dedicado y soporte
                         24/7, estamos comprometidos a transformar tus ideas en soluciones informáticas excepcionales.
                     </p>
-                    <a href="" class="leer_mas">leer mas</a>
+                    <a href="https://asistescolar.com/" class="leer_mas">leer mas</a>
                 </div>
                 <div class="conocenos_imagen d-none d-lg-block col-12 col-md-4">
                     <img src="assets/img/vvv.jpg" alt="imagen de aplicacion" class="img-fluid">
@@ -209,33 +205,105 @@
 
     <!--footer-->
 
-    <footer class="bg-dark text-white text-center py-3 py-md-5 mt-5">
-        <div class="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+    <footer id="footer" style="background-color: #EAEAEA!important">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-3 mb-3">
-                    <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="/"
-                        aria-label="Bootstrap">
-                        <img src="assets/img/logo_h.png" width="150px" class="d-block me-2"
-                            viewBox="0 0 118 94" role="img">
-                        <title>Bootstrap</title>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
-                            fill="currentColor" /></svg>
-                        <span class="fs-5">B y C Computacion C.A.</span>
-                    </a>
-                    <ul class="list-unstyled small text-white">
-                        <li class="mb-2">Todos los derechos reservados para carlos y rafael que con mucho esfuerzo
-                            hicieron
-                            este sistema.</li>
-                        <li class="md-2">Hecho para el Instituto universitario Jesus Obrero(IUJO).</li>
-                        <li class="mb-2">Code licensed <a
-                                href="https://github.com/sukkoy298/proyectoSae/blob/main/README.md" target="_blank"
-                                rel="license noopener">LCC.</a></li>
-                        <li class="mb-2">Codigo Fuente <a href="https://github.com/sukkoy298/proyectoSae"
-                                target="_blank" rel="license noopener">Codigo.</a></li>
-                    </ul>
+                <div class="footer-ribbon">
+                    <span style="font-family:sans-serif;">AsistEscolar</span>
+                </div>
+                <div class="col-lg-12">
+                    <div class="newsletter">
+                        <p>En AsistEscolar nos enfocamos en cumplir los requerimientos de instituciones educativas; públicas y privadas, con diseños e implementación de sistemas; con interfaz amigable, y en el establecimiento de un buen equipo y mecanismos para asistencia y soporte técnico de primera.
+                            Nuestros sistemas son Autoadministrables y AutoConfigurables, brindan respuestas a requerimientos de la Comunidad Educativa (estudiantes, representante, profesor, institución, otros) rápidamente con solo un clic.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="contact-details">
+                        <h5 style="color:#888888">Corporativo</h5>
+                        <ul class="contact">
+                            <li>
+                                <p><a href="#" style="color:#888888"><i class="fa fa-angle-right"></i> Asistescolar</a></p>
+                            </li>
+                            <li>
+                                <p><a href="#" style="color:#888888"><i class="fa fa-angle-right"></i> Blog de Asistescolar</a></p>
+                            </li>
+                            <li>
+                                <p><a href="distribuidor/" style="color:#888888"><i class="fa fa-angle-right"></i> Trabaja con Nosotros</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="contact-details">
+                        <h5 style="color:#888888">Ventas</h5>
+                        <ul class="contact">
+                            <li>
+                                <p><a href="contacto.php" style="color:#888888"><i class="fa fa-angle-right"></i> Informar Pago</a></p>
+                            </li>
+                            <li>
+                                <p><a href="contacto.php" style="color:#888888"><i class="fa fa-angle-right"></i> Contactarse con Ventas</a></p>
+                            </li>
+                            <li>
+                                <p><a href="#" style="color:#888888"><i class="fa fa-angle-right"></i> Planes y Precios</a></p>
+                            </li>
+                            <li>
+                                <p><a href="contacto.php" style="color:#888888"><i class="fa fa-angle-right"></i> Solicite una Demostración</a></p>
+                            </li>
+                            <li>
+                                <p><a href="distribuidor/" style="color:#888888"><i class="fa fa-angle-right"></i> Alianzas Comerciales</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="contact-details">
+                        <h5 style="color:#888888">Soporte</h5>
+                        <ul class="contact">
+                            <li>
+                                <p style="color:#888888"><i class="fa fa-mobile-alt"></i> +58 0416 6562698 / 5014354</p>
+                            </li>
+                            <li>
+                                <p style="color:#888888"><i class="fa fa-phone"></i> +58 0251 4452591 / 4172183 / 4468684</p>
+                            </li>
+                            <li>
+                                <p><a href="#" style="color:#888888"><i class="fa fa-angle-right"></i> Preguntas Frecuentes</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <h5 style="color:#888888">Contáctanos</h5>
+                    +58 0251 4452591<br>
+                    <!--<em>Chat con expertos vía Whatsapp:</em><br>-->
+                    <a href="https://api.whatsapp.com/send?phone=5804245900091" target="_blank" style="color:#888888; text-decoration: none" ;="" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Chat vía Whatsapp" data-original-title="" title=""><i class="fab fa-whatsapp fa-lg" style="color:#7BBF6A"></i> Chat vía Whatsapp</a><br><br>
+                    <font style="color:#0088CC; font-weight: bold">B y C Computación, C.A.</font><br>
+                    RIF: J-30495950-8
                 </div>
             </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="index.php" class="logo">
+                            <img alt="logo_h.png" class="img-fluid" src="../../assets/img/logo_h.png" width="150px">
+                        </a>
+                    </div>
+                    <div class="col-lg-7">
+                        <p>© 2019 AsistEscolar </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <nav id="sub-menu">
+                            <ul>
+                                <li><a href="#">Preguntas Frecuentes</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="contacto.php">Contáctanos</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>

@@ -1,7 +1,8 @@
 <?php
 include '../config/db.php';
 
-class User {
+class User
+{
     private $conn;
     private $id;
     private $name;
@@ -10,18 +11,34 @@ class User {
     private $empresa;
     private $ciudad;
 
-    public function __construct($id, $name, $email, $password, $empresa, $ciudad) {
+    public function __construct($id, $name, $email, $password, $empresa, $ciudad)
+    {
         $this->conn = connect();
         $this->id = $id;
         $this->name = $name;
         $this->email = $email;
-        $this->password = $password; 
+        $this->password = $password;
         $this->empresa = $empresa;
         $this->ciudad = $ciudad;
     }
-    
 
-    public function save() {
+    public static function exists($email)
+    {
+        $conn = connect();
+        $query = "SELECT COUNT(*) as count FROM users WHERE email = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, 's', $email);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $count);
+        mysqli_stmt_fetch($stmt);
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+
+        return $count > 0;
+    }
+
+    public function save()
+    {
         $sql = "INSERT INTO users (name, email, password, empresa, ciudad) VALUES ('$this->name', '$this->email', '$this->password', '$this->empresa', '$this->ciudad')";
 
         if (mysqli_query($this->conn, $sql)) {
@@ -31,7 +48,8 @@ class User {
         }
     }
 
-    public static function login($email, $password) {
+    public static function login($email, $password)
+    {
         $conn = connect();
         $sql = "SELECT * FROM users WHERE email = '$email'";
         $query = mysqli_query($conn, $sql);
@@ -44,7 +62,8 @@ class User {
         }
     }
 
-    public static function findByEmail($email) {
+    public static function findByEmail($email)
+    {
         $conn = connect();
         $sql = "SELECT * FROM users WHERE email = '$email'";
         $result = mysqli_query($conn, $sql);
@@ -57,28 +76,33 @@ class User {
         }
     }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
-    public function getEmpresa() {
+    public function getEmpresa()
+    {
         return $this->empresa;
     }
 
-    public function getCiudad() {
+    public function getCiudad()
+    {
         return $this->ciudad;
     }
 }
-?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-02-2025 a las 22:41:59
+-- Tiempo de generación: 07-02-2025 a las 22:16:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,15 +28,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `proyectos` (
-  `id` int(20) NOT NULL,
-  `empresa` varchar(20) NOT NULL,
-  `ciudad` varchar(20) NOT NULL,
-  `fecha` varchar(20) NOT NULL,
-  `tipo` varchar(20) NOT NULL,
-  `programador` varchar(20) NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `requisitos` varchar(256) NOT NULL
+  `id` int(11) NOT NULL,
+  `empresa` varchar(255) NOT NULL,
+  `ciudad` varchar(255) NOT NULL,
+  `fecha` varchar(255) NOT NULL,
+  `tipo` varchar(255) NOT NULL,
+  `programador` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `requisitos` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `proyectos`
+--
+
+INSERT INTO `proyectos` (`id`, `empresa`, `ciudad`, `fecha`, `tipo`, `programador`, `status`, `requisitos`) VALUES
+(8, 'iujo', 'cabudare', '2025-02-07', 'Evaluacion', 'yo, carlos', 'En Espera', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
@@ -45,12 +52,12 @@ CREATE TABLE `proyectos` (
 --
 
 CREATE TABLE `users` (
-  `id` int(20) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `email` varchar(64) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `empresa` varchar(20) NOT NULL,
-  `ciudad` varchar(20) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `empresa` varchar(255) NOT NULL,
+  `ciudad` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -61,7 +68,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `empresa`, `ciudad`) VAL
 (3, 'orion', 'Orion123@gmail.com', '123456', 'orion company', 'barquisimeto'),
 (4, 'carlos rodriguez', 'carlos@gmail.com', '12345678', 'Erfundenes Unternehm', 'München'),
 (5, 'carlos rodriguez', 'augusto@gmail.com', 'SukOY298.$', 'Erfundenes Unternehm', 'barquisimeto'),
-(6, 'carlos rodriguez', 'theshadowx171@gmail.com', '123', 'dsd', 'barquisimeto');
+(6, 'carlos rodriguez', 'theshadowx171@gmail.com', '123', 'dsd', 'barquisimeto'),
+(7, 'rafael alvarez', 'alvarezrafaelat@gmail.com', '31757781', 'iujo', 'cabudare');
 
 --
 -- Índices para tablas volcadas
@@ -87,13 +95,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `proyectos`
 --
 ALTER TABLE `proyectos`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

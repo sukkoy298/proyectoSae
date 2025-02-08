@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(240, 240, 240) !important;
+}
+
+.form-group {
+  margin-top: 1rem;
+}
+
+.btn {
+  margin-top: 1rem;
+}
+
+h3,
+h2 {
+  margin: 1rem;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.boton {
+  font-weight: bold;
+  border-color: rgb(158, 158, 158);
+  border-width: 0.125rem;
+  border-style: dashed;
+}
+
+#edit:hover {
+  color: #ffffff;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+#delete:hover {
+  color: #ffffff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}

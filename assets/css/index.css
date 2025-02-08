@@ -1,0 +1,418 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+/*-------------------------------html/body-----------------------------*/
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/*-------------------------------navbar-----------------------------*/
+
+.navbar {
+  padding: 1rem;
+  background-color: #ffffff !important;
+}
+
+.collapse {
+  font-size: 1.2rem;
+}
+
+.navbar img {
+  background-color: white;
+  padding: 3px;
+  border: none;
+  border-radius: 5px;
+}
+
+.collapse {
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/*-------------------------------section (encabezado)-----------------------------*/
+
+.encabezado {
+  background-image: url("/assets/img/1_1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  padding-top: 100px;
+}
+
+.titulo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: left;
+}
+.titulo h1 {
+  margin: 10px;
+  width: 45vw;
+  font-weight: bold;
+}
+
+.cuadrado {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+  border: 1px solid #ccc; /* Opcional: para ver los bordes de los divs */
+  height: auto; /* Ajusta la altura según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: flex-end;
+  margin: 0.6rem; /* Margen entre los cuadrados */
+  border-radius: 12px;
+  padding: 0.6rem;
+}
+
+.cuadrado img {
+  width: 3.5rem;
+  margin: 0;
+  padding: 0;
+}
+.cuadrado p {
+  margin-top: 0.5rem;
+  color: black;
+  font-weight: bold;
+}
+.cuadrado .logo {
+  size: 100%;
+}
+
+/*-------------------------------section (descripcion)-----------------------------*/
+
+.descripcion {
+  padding: 5vw;
+  max-width: 800px;
+}
+.descripcion h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  padding: 2vw;
+}
+.descripcion p {
+  font-size: 1.25rem; /* Tamaño de fuente más grande para destacar */
+  color: #444444; /* Color de texto ligeramente más oscuro */
+  text-transform: uppercase; /* Transformar texto a mayúsculas */
+  padding-left: 5vw; /* Padding responsivo */
+  padding-right: 5vw;
+}
+
+/*------------------------------------section (descripcion-cards)-----------------------------------------*/
+
+.cards {
+  padding: 1rem;
+}
+
+.carta {
+  border-radius: 12px;
+  background-color: rgb(240, 240, 240);
+  margin: 1rem;
+  padding: 1rem; /* Aumenta el padding para más espacio */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carta img {
+  margin: 0; /* Elimina el margen de la imagen */
+  width: 2rem; /* Limita la altura de la imagen */
+}
+
+.carta a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamaño de fuente para el enlace */
+  margin-bottom: 10px; /* Espacio debajo del enlace */
+}
+
+.carta p {
+  font-size: 1rem; /* Tamaño de fuente para el párrafo */
+  flex-grow: 1;
+  margin: 0; /* Elimina el margen del párrafo */
+  line-height: 1.5;
+}
+
+.acerca_descripcion {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.acerca_descripcion a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamaño de fuente para el enlace */
+  margin-bottom: 10px;
+}
+
+/*---------------------------------conocenos-------------------------------*/
+
+.conocenos {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.conocenos a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamaño de fuente para el enlace */
+  margin-bottom: 10px;
+}
+
+.conocenos_descripcion {
+  font-size: 1rem;
+  color: white;
+  background-color: rgb(16, 141, 201);
+  padding: 1.25rem;
+  border-right: 4.5rem, solid, rgb(16, 141, 201);
+  border-top: 4.5rem, solid, rgb(16, 141, 201);
+  border-radius: 13px;
+}
+
+.conocenos_descripcion h3 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.conocenos_imagen {
+  padding: 0;
+}
+
+.conocenos_descripcion a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.conocenos_imagen img {
+  height: 100%;
+  border-radius: 13px;
+}
+
+/*--------------------------------contactos-----------------------------------*/
+
+.contactos {
+  padding: 2rem;
+}
+
+.t_contacto {
+  background-color: rgb(16, 141, 201);
+  border-radius: 3rem;
+  width: 15rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.t_contacto img {
+  width: 5rem;
+  margin: 2rem;
+  margin-top: 0.3rem;
+  border: 5px, solid, white;
+  border-radius: 50%;
+}
+
+.t_contacto p {
+  color: white;
+  font-size: 1rem;
+}
+
+.t_contacto a {
+  text-decoration: none;
+  color: black;
+}
+/*-------------------------------footer------------------------------------*/
+
+#footer {
+  background: #ffffff !important;
+  font-size: 0.9em;
+  margin-top: 5rem;
+  padding: 70px 0 0;
+  position: relative;
+  clear: both;
+}
+
+#footer a {
+  text-decoration: none;
+}
+
+#footer .footer-ribbon {
+  background: #088ccc;
+  position: absolute;
+  width: 100%;
+  margin: -90px 0 0 14px;
+  padding: 10px 20px 6px 20px;
+}
+
+#footer .footer-ribbon:before {
+  border-right: 10px solid #646464;
+  border-top: 16px solid transparent;
+  content: "";
+  display: block;
+  height: 0;
+  right: 100%;
+  position: absolute;
+  top: 0;
+  width: 7px;
+}
+
+#footer img {
+  border-radius: 5px;
+  width: 100%;
+}
+/*-------------------------------media query's-----------------------------*/
+
+@media screen and (max-width: 767px) {
+  .titulo h1 {
+    margin: 10px;
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-brand {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .descripcion h1 {
+    font-size: 2rem; /* Tamaño más pequeño en pantallas pequeñas */
+  }
+
+  .descripcion p {
+    font-size: 1rem; /* Tamaño más pequeño en pantallas pequeñas */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .descripcion h1 {
+    font-size: 1.75rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+  }
+
+  .descripcion p {
+    font-size: 0.875rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .descripcion h1 {
+    font-size: 3rem;
+    padding: 2vw; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+  }
+
+  .descripcion p {
+    font-size: 1.25rem; /* Tamaño de fuente más grande para destacar */
+    padding-left: 0.5rem; /* Padding responsivo */
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carta a {
+    font-size: 1.25rem; /* Tamaño más pequeño en pantallas pequeñas */
+  }
+
+  .carta p {
+    font-size: 0.9rem; /* Tamaño más pequeño en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 576px) {
+  .carta a {
+    font-size: 1rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+  }
+
+  .carta p {
+    font-size: 0.8rem; /* Tamaño aún más pequeño en pantallas muy pequeñas */
+  }
+}
+
+@media (max-width: 425px) {
+  .conocenos_imagen img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .conocenos_descripcion {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+  }
+}
+
+@media (min-width: 768px) and (min-width: 1024px) {
+  .conocenos_imagen img {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 0;
+  }
+  .conocenos_descripcion {
+    border-top-left-radius: 0;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 13px;
+  }
+}
+
+@media (min-width: 1023px) {
+  .conocenos_imagen img {
+    border-top-left-radius: 0;
+    border-top-right-radius: 13px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 13px;
+  }
+  .conocenos_descripcion {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@media (max-width: 727px) {
+  .t_contacto {
+    width: 100%;
+    background-color: white !important;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0.5rem;
+  }
+
+  .t_contacto img {
+    margin-top: none !important;
+    border: 5px, solid, rgb(192, 191, 191);
+    border-radius: 50%;
+  }
+
+  .t_contacto p {
+    color: black;
+  }
+}
+
+@media (max-width: 321px) {
+  .opc {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 1063px) and (min-width: 810px) {
+  #whatsapp {
+    display: none;
+  }
+}

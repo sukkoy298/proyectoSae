@@ -1,39 +1,29 @@
-.proyectos {
-  background-color: rgba(236, 236, 236, 0.897);
-  background: linear-gradient(to bottom, rgb(218, 218, 218) 5%, #f7f7f7 50%);
-  background: linear-gradient(to top, #ffffff 5%, #f7f7f7 10%);
-}
-
-.muestra {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border: 0.3125rem, rgb(141, 141, 141);
-  border-style: dashed;
-  border-radius: 1.5rem;
-  height: 18.75rem;
-}
-
-.muestra img {
-  width: 10rem;
-  height: 8rem;
-}
-
-.muestra_descripcion {
-  padding: 1.5rem;
-  font-size: 1rem;
-  width: 100%;
+.requerimientos {
+  max-height: 10rem;
   overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s ease;
+  background-color: rgb(240, 240, 240) !important;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
 }
 
-.filter {
-  width: 100%;
+.requerimientos::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-/*-------------------------------media querys-----------------------------------------*/
-@media (max-width: 991px) {
-  .muestra {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
+
+.requerimientos::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Inicialmente invisible */
+  border-radius: 10px; /* Más redondeado */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.requerimientos:hover {
+  scrollbar-color: #888 #f1f1f1; /* Color visible al pasar el cursor */
+}
+
+.requerimientos:hover::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color visible al pasar el cursor */
 }

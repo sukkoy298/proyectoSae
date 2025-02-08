@@ -1,8 +1,10 @@
 <?php
 require_once '../models/users.php';
 
-class AuthController {
-    public function register() {
+class AuthController
+{
+    public function register()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['name']) && isset($_POST['empresa']) && isset($_POST['ciudad'])) {
                 // Registro de usuario
@@ -19,17 +21,34 @@ class AuthController {
                     return;
                 }
 
-                // Crear una instancia de User y guardar los datos
-                $user = new User($id, $name, $email, $password, $empresa, $ciudad);
-                if ($user->save()) {
-                    echo "Registro exitoso.";
+                if (User::exists($email)) {
+                    print "este correo ya esta vinculado a una cuenta: " . $email;
+                    print " ...volviendo al registro";
+?>
+                    <meta http-equiv="refresh" content="5;url=../views/register.php">
+                    <?php
+                    return;
                 } else {
-                    echo "Error al registrar el usuario.";
+                    // Crear una instancia de User y guardar los datos
+                    $user = new User($id, $name, $email, $password, $empresa, $ciudad);
+                    if ($user->save()) {
+                        print "usuario " . $email . "registrado correctamente";
+                        print " ...volviendo a inicio de sesion";
+                    ?>
+                        <meta http-equiv="refresh" content="5;url=../views/login.php">
+                    <?php
+                    } else {
+                        echo "Error al registrar el usuario.";
+                    ?>
+                        <meta http-equiv="refresh" content="5;url=../../index.php">
+                <?php
+                    }
                 }
             }
         }
     }
-    public function login(){
+    public function login()
+    {
         if (isset($_POST['email']) && isset($_POST['password'])) {
             // Autenticación de usuario
             $email = $_POST['email'];
@@ -37,32 +56,35 @@ class AuthController {
 
             // Validar los datos 
             if (empty($email) || empty($password)) {
-            echo "Email y contraseña son obligatorios.";
-            return;
+                echo "Email y contraseña son obligatorios.";
+                return;
             }
 
             // Comprobar si el usuario existe
             $user = User::login($email, $password);
             if ($user) {
-            // Iniciar sesión
-            session_start();
-            $_SESSION['user_id'] = $user->getId();
-            $_SESSION['user_email'] = $user->getEmail();
-            $_SESSION['user_empresa'] = $user->getEmpresa();
-            $_SESSION['user_ciudad'] = $user->getCiudad();
+                // Iniciar sesión
+                session_start();
+                $_SESSION['user_id'] = $user->getId();
+                $_SESSION['user_email'] = $user->getEmail();
+                $_SESSION['user_empresa'] = $user->getEmpresa();
+                $_SESSION['user_ciudad'] = $user->getCiudad();
 
-            // Redirigir según el rol del usuario
-            if ($user->getEmail() === 'admin@example.com') {
-                header("Location: ../views/admin_dashboard.php");
+                // Redirigir según el rol del usuario
+                if ($user->getEmail() === 'admin@example.com') {
+                    header("Location: ../views/admin_dashboard.php");
+                } else {
+                    $name = $user->getName();
+                    $empresa = $user->getEmpresa();
+                    $ciudad = $user->getCiudad();
+                    header("Location: ../views/dashboard.php?name=$name&empresa=$empresa&ciudad=$ciudad");
+                }
+                exit();
             } else {
-                $name = $user->getName();
-                $empresa = $user->getEmpresa();
-                $ciudad = $user->getCiudad();
-                header("Location: ../views/dashboard.php?name=$name&empresa=$empresa&ciudad=$ciudad");
-            }
-            exit();
-            } else {
-            echo "Email o contraseña incorrectos.";
+                echo "Email o contraseña incorrectos: " . $email . " - " . $password;
+                ?>
+                <meta http-equiv="refresh" content="5;url=../views/login.php">
+<?php
             }
         } else {
             echo "Datos insuficientes.";
@@ -74,14 +96,13 @@ class AuthController {
 // Crear una instancia del controlador y llamar al método register
 $authController = new AuthController();
 
-if (isset($_POST['login'])){
+if (isset($_POST['login'])) {
     $authController->login();
-}else{
-   $authController->register();
+} else {
+    $authController->register();
 }
 if (isset($_GET['logout'])) {
     session_start();
     session_destroy();
     header("Location: ../index.php");
 }
-?>
