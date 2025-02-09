@@ -22,6 +22,10 @@ class User
         $this->ciudad = $ciudad;
     }
 
+    public function isAdmin() {
+        return $this->email === 'admin@SAE.com'; // o según tu lógica de negocio
+    }
+
     public static function exists($email)
     {
         $conn = connect();

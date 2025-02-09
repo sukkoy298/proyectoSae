@@ -26,7 +26,7 @@ $id = isset($_GET['id']);
 <div class="container mt-5">
     <h2>Proyectos</h2>
     <div class="row">
-        <div class="col-md-3">
+        <div class="espera col-md-3">
             <h3>En Espera</h3>
             <?php
             // Obtener proyectos en espera
@@ -46,8 +46,8 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn btn-outline-warning" id="edit_amarillo">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -57,7 +57,7 @@ $id = isset($_GET['id']);
             }
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="asignado col-md-3">
             <h3>Asignado</h3>
             <?php
             // Obtener proyectos asignados
@@ -77,8 +77,8 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn btn-outline-primary" id="edit_azul">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -88,7 +88,7 @@ $id = isset($_GET['id']);
             }
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="proceso col-md-3">
             <h3>En Proceso</h3>
             <?php
             // Obtener proyectos en proceso
@@ -108,8 +108,8 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit_morado">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -119,7 +119,7 @@ $id = isset($_GET['id']);
             }
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="terminado col-md-3">
             <h3>Terminado</h3>
             <?php
             // Obtener proyectos terminados
@@ -139,8 +139,8 @@ $id = isset($_GET['id']);
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '&admin=true" class="btn btn-outline-success" id="edit_verde">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete"">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
