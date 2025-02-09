@@ -1,10 +1,8 @@
 <?php
 require_once '../models/proyectos.php';
 
-class ProyectController
-{
-    public function registrarProyecto()
-    {
+class ProyectController {
+    public function registrarProyecto() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['empresa']) && isset($_POST['ciudad']) && isset($_POST['tipo']) && isset($_POST['fecha']) && isset($_POST['programador']) && isset($_POST['status']) && isset($_POST['requisitos'])) {
                 // Registro de proyecto
@@ -16,7 +14,6 @@ class ProyectController
                 $programador = $_POST['programador'];
                 $status = $_POST['status'];
                 $requisitos = $_POST['requisitos'];
-                //$n_archivo = $_POST['nombre_archivo'];
 
                 // Crear una instancia de Proyecto y guardar los datos
                 $proyecto = new Proyecto($id, $empresa, $ciudad, $tipo, $fecha, $programador, $status, $requisitos);
@@ -30,8 +27,7 @@ class ProyectController
         }
     }
 
-    public function editarProyecto()
-    {
+    public function editarProyecto() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['id']) && isset($_POST['empresa']) && isset($_POST['ciudad']) && isset($_POST['tipo']) && isset($_POST['fecha']) && isset($_POST['programador']) && isset($_POST['status']) && isset($_POST['requisitos'])) {
                 // Obtener el proyecto existente
@@ -49,8 +45,13 @@ class ProyectController
                     $proyecto->setRequisitos($_POST['requisitos']);
 
                     if ($proyecto->editar()) {
-                        header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
-                        exit();
+                        if (isset($_POST['is_admin'])) {
+                            header("Location: ../views/dashboard-admin.php");
+                            exit();
+                        }else{
+                            header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
+                            exit();
+                        }
                     } else {
                         echo "Error al actualizar el proyecto.";
                     }
@@ -61,8 +62,7 @@ class ProyectController
         }
     }
 
-    public function buscarProyecto()
-    {
+    public function buscarProyecto() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (isset($_GET['empresa']) && isset($_GET['ciudad'])) {
                 $empresa = $_GET['empresa'];
@@ -80,8 +80,7 @@ class ProyectController
         }
     }
 
-    public function deleteProyecto()
-    {
+    public function deleteProyecto() {
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
             $id = $_GET['id'];
             $proyecto = Proyecto::obtenerProyectoPorId($id);
@@ -106,6 +105,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'registrar') {
     $proyectController->registrarProyecto();
 } elseif (isset($_POST['action']) && $_POST['action'] === 'editar') {
     $proyectController->editarProyecto();
-} elseif (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
+}elseif (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])) {
     $proyectController->deleteProyecto();
 }
+?>
