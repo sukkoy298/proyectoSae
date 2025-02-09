@@ -24,3 +24,11 @@ input {
 .form-control {
   font-size: 1rem;
 }
+
+#requisitos {
+  height: 10rem;
+}
+
+.registrar {
+  margin-top: 1rem;
+}

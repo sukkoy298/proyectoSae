@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../config/db.php';
 // Conexión a la base de datos
 $servername = "localhost";
@@ -17,16 +18,21 @@ if ($conn->connect_error) {
 $empresa = isset($_GET['empresa']) ? $_GET['empresa'] : 'Desconocida';
 $ciudad = isset($_GET['ciudad']) ? $_GET['ciudad'] : 'Desconocida';
 $nombre = isset($_GET['name']) ? $_GET['name'] : 'Usuario';
-$id = isset($_GET['id']);
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$_SESSION["NOMBRE"] = $nombre;
 ?>
 <?php include("layouts/header_dashboard.html") ?>
 <div class="container mt-5">
-    <h1>Bienvenido <?php echo htmlspecialchars($nombre); ?> de la empresa <?php echo htmlspecialchars($empresa); ?> - <?php echo htmlspecialchars($ciudad); ?></h1>
+    <div class="row">
+        <div class="col-12 col-lg-7">
+            <h1>Bienvenido <?php echo $_SESSION["NOMBRE"]; ?> de la empresa <?php echo htmlspecialchars($empresa); ?> - <?php echo htmlspecialchars($ciudad); ?></h1>
+        </div>
+    </div>
 </div>
 <div class="container mt-5">
     <h2>Proyectos</h2>
     <div class="row">
-        <div class="col-md-3">
+        <div class="espera col-md-3">
             <h3>En Espera</h3>
             <?php
             // Obtener proyectos en espera
@@ -36,16 +42,15 @@ $id = isset($_GET['id']);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo '<div class="card mb-3">';
-                    echo '<div class="card-body">';
-                    echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
-                    echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
-                    echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
+                    echo '<div class="card-body"';
+                    echo '<p class="card-text" id="tipo">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
+                    echo '<p class="card-text" id="programador">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<div class="requerimientos">';
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-warning" id="edit_amarillo">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -55,7 +60,7 @@ $id = isset($_GET['id']);
             }
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="asignado col-md-3">
             <h3>Asignado</h3>
             <?php
             // Obtener proyectos asignados
@@ -66,15 +71,14 @@ $id = isset($_GET['id']);
                 while ($row = $result2->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
-                    echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
-                    echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
-                    echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
+                    echo '<p class="card-text"id="tipo">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
+                    echo '<p class="card-text"id="programador">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<div class="requerimientos">';
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-primary" id="edit_azul">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -84,7 +88,7 @@ $id = isset($_GET['id']);
             }
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="proceso col-md-3">
             <h3>En Proceso</h3>
             <?php
             // Obtener proyectos en proceso
@@ -95,15 +99,14 @@ $id = isset($_GET['id']);
                 while ($row = $result3->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
-                    echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
-                    echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
-                    echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
+                    echo '<p class="card-text"id="tipo">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
+                    echo '<p class="card-text"id="programador">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<div class="requerimientos">';
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn" id="edit_morado">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -113,7 +116,7 @@ $id = isset($_GET['id']);
             }
             ?>
         </div>
-        <div class="col-md-3">
+        <div class="terminado col-md-3">
             <h3>Terminado</h3>
             <?php
             // Obtener proyectos terminados
@@ -124,15 +127,14 @@ $id = isset($_GET['id']);
                 while ($row = $result4->fetch_assoc()) {
                     echo '<div class="card mb-3">';
                     echo '<div class="card-body">';
-                    echo '<p class="card-text">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
-                    echo '<p class="card-text">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
-                    echo '<p class="card-text">Fecha: ' . htmlspecialchars($row["fecha"]) . '</p>';
+                    echo '<p class="card-text"id="tipo">Tipo: ' . htmlspecialchars($row["tipo"]) . '</p>';
+                    echo '<p class="card-text"id="programador">Programador: ' . htmlspecialchars($row["programador"]) . '</p>';
                     echo '<div class="requerimientos">';
                     echo '<p class="card-text">Requisitos: ' . htmlspecialchars($row["requisitos"]) . '</p>';
                     echo '</div>';
                     echo '<div class="container d-flex flex-column">';
-                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="edit">Editar</a>';
-                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn boton" id="delete">Eliminar</a>';
+                    echo '<a href="edit_proyecto.php?id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-success" id="edit_verde">Editar</a>';
+                    echo '<a href="../controller/proyectControl.php?action=delete&id=' . htmlspecialchars($row["id"]) . '" class="btn btn-outline-danger" id="delete">Eliminar</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';

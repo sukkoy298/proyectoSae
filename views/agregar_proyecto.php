@@ -1,4 +1,4 @@
- <?php include("layouts/header.html") ?>
+ <?php include("layouts/header_dashboard.html") ?>
  <?php
     $empresa = isset($_GET['empresa']) ? $_GET['empresa'] : 'Desconocida';
     $ciudad = isset($_GET['ciudad']) ? $_GET['ciudad'] : 'Desconocida';
@@ -40,7 +40,7 @@
          <!--<div class="form-group">
              <input type="hidden" name="nombre_archivo" value="">
          </div>-->
-         <button type="submit" class="btn btn-primary">Registrar Proyecto</button>
+         <button type="submit" class="registrar btn btn-primary">Registrar Proyecto</button>
      </form>
      <!--nombre del archivo a guardar
      <script>

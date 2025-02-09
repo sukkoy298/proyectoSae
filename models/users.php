@@ -11,7 +11,7 @@ class User
     private $empresa;
     private $ciudad;
 
-    public function __construct($id, $name, $email, $password, $empresa, $ciudad)
+    public function __construct($id = null, $name = null, $email = null, $password  = null, $empresa  = null, $ciudad  = null)
     {
         $this->conn = connect();
         $this->id = $id;
@@ -62,10 +62,6 @@ class User
         }
     }
 
-    public function isAdmin() {
-        return $this->email === 'admin@SAE.com';
-    }
-
     public static function findByEmail($email)
     {
         $conn = connect();
@@ -77,6 +73,80 @@ class User
             return new User($row['id'], $row['name'], $row['email'], $row['password'], $row['empresa'], $row['ciudad']);
         } else {
             return null;
+        }
+    }
+
+    public function extraer_datos($id)
+    {
+        include("../config/conexion.php");
+        try {
+            $usuario = $con->prepare("SELECT * FROM users WHERE id = ?");
+            $usuario->execute([$id]);
+            $datos = $usuario->fetch(PDO::FETCH_ASSOC);
+?>
+            <div class="container">
+                <h1 style="margin-top:1.5rem; margin-bottom:1.5rem;">Configuracion de la cuenta</h1>
+                <form action="edit_cuenta.php" method="POST">
+                    <input type="hidden" value="<?php print $id; ?>" name="id">
+                    <div class="mb-3">
+                        <label for="name">Nombre: </label>
+                        <input type="text" value="<?php print $datos["name"] ?>" name="name" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Email: </label>
+                        <input type="text" value="<?php print $datos["email"] ?>" name="email" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">Contraseña: </label>
+                        <input type="text" value="<?php print $datos["password"] ?>" name="password" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="empresa">Empresa: </label>
+                        <input type="text" value="<?php print $datos["empresa"] ?>" name="empresa" class="form-control" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ciudad">Ciudad: </label>
+                        <input type="text" value="<?php print $datos["ciudad"] ?>" name="ciudad" class="form-control" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">editar</button>
+                </form>
+                <form action="../controller/eliminar_cuenta_controller.php" method="POST">
+                    <input type="hidden" value="<?php echo $id ?>" name="id" readonly>
+                    <button type="submit" class="btn btn-danger">eliminar cuenta</button>
+                </form>
+            </div>
+        <?php
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+
+    public function editar_usuario($id, $name, $email, $password, $empresa, $ciudad)
+    {
+        try {
+            include("../config/conexion.php");
+            $editar = $con->prepare("UPDATE users SET name = ?, email = ?, password =?, empresa = ?, ciudad = ? WHERE id = ?");
+            $editar->execute([$name, $email, $password, $empresa, $ciudad, $id]);
+        ?>
+            <p>cuenta editada con exito... volviendo a ajustes de la cuenta</p>
+            <meta http-equiv="refresh" content="5;url=../views/configuracion_cuenta.php">
+        <?php
+        } catch (PDOException) {
+        };
+    }
+
+    public function eliminar_usuario($id)
+    {
+        try {
+            include("../config/conexion.php");
+            $eliminar = $con->prepare("DELETE FROM users WHERE id = ?");
+            $eliminar->execute([$id]);
+        ?>
+            <p>cuenta eliminada con exito... volviendo a login</p>
+            <meta http-equiv="refresh" content="5;url=../views/login.php">
+<?php
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
         }
     }
 
@@ -108,5 +178,35 @@ class User
     public function getCiudad()
     {
         return $this->ciudad;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
+    }
+
+    public function setCiudad($ciudad)
+    {
+        $this->ciudad = $ciudad;
     }
 }

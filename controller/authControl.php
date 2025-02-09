@@ -7,16 +7,7 @@ class AuthController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['name']) && isset($_POST['empresa']) && isset($_POST['ciudad'])) {
-                // Validación de campos obligatorios
-                $requiredFields = ['name', 'email', 'password', 'empresa', 'ciudad'];
-                foreach ($requiredFields as $field) {
-                    if (empty($_POST[$field])) {
-                        $this->redirectWithError("Todos los campos son obligatorios.", '../views/register.php');
-                        return;
-                    }
-                }
-
-                // Asignación de valores
+                // Registro de usuario
                 $id = null;
                 $name = $_POST['name'];
                 $email = $_POST['email'];
@@ -24,91 +15,94 @@ class AuthController
                 $empresa = $_POST['empresa'];
                 $ciudad = $_POST['ciudad'];
 
-                // Validar email único
-                if (User::exists($email)) {
-                    $this->redirectWithError("Este correo ya está registrado: $email", '../views/register.php');
+                // Validar los datos 
+                if (empty($name) || empty($email) || empty($password) || empty($empresa) || empty($ciudad)) {
+                    echo "Todos los campos son obligatorios.";
                     return;
                 }
 
-                // Crear y guardar usuario
-                $user = new User($id, $name, $email, $password, $empresa, $ciudad);
-                if ($user->save()) {
-                    $this->redirectWithSuccess("Usuario $email registrado correctamente", '../views/login.php');
+                if (User::exists($email)) {
+                    print "este correo ya esta vinculado a una cuenta: " . $email;
+                    print " ...volviendo al registro";
+?>
+                    <meta http-equiv="refresh" content="5;url=../views/register.php">
+                    <?php
+                    return;
                 } else {
-                    $this->redirectWithError("Error al registrar el usuario", '../../index.php');
+                    // Crear una instancia de User y guardar los datos
+                    $user = new User($id, $name, $email, $password, $empresa, $ciudad);
+                    if ($user->save()) {
+                        print "usuario " . $email . "registrado correctamente";
+                        print " ...volviendo a inicio de sesion";
+                    ?>
+                        <meta http-equiv="refresh" content="5;url=../views/login.php">
+                    <?php
+                    } else {
+                        echo "Error al registrar el usuario.";
+                    ?>
+                        <meta http-equiv="refresh" content="5;url=../../index.php">
+                <?php
+                    }
                 }
             }
         }
     }
-
     public function login()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Validación de campos
-            if (empty($_POST['email']) || empty($_POST['password'])) {
-                $this->redirectWithError("Email y contraseña son obligatorios.", '../views/login.php');
-                return;
-            }
-
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            // Autenticación de usuario
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            // Autenticación
+            // Validar los datos 
+            if (empty($email) || empty($password)) {
+                echo "Email y contraseña son obligatorios.";
+                return;
+            }
+
+            // Comprobar si el usuario existe
             $user = User::login($email, $password);
             if ($user) {
+                // Iniciar sesión
                 session_start();
                 $_SESSION['user_id'] = $user->getId();
                 $_SESSION['user_email'] = $user->getEmail();
                 $_SESSION['user_empresa'] = $user->getEmpresa();
                 $_SESSION['user_ciudad'] = $user->getCiudad();
-                $_SESSION['is_admin'] = $user->isAdmin(); // Asumiendo método isAdmin() en User
 
-                // Redirección según rol
-                if ($_SESSION['is_admin']) {
-                    header("Location: ../views/dashboard-admin.php");
+                // Redirigir según el rol del usuario
+                if ($user->getEmail() === 'admin@example.com') {
+                    header("Location: ../views/admin_dashboard.php");
                 } else {
-                    header("Location: ../views/dashboard.php?" . http_build_query([
-                        'name' => $user->getName(),
-                        'empresa' => $user->getEmpresa(),
-                        'ciudad' => $user->getCiudad()
-                    ]));
+                    $name = $user->getName();
+                    $empresa = $user->getEmpresa();
+                    $ciudad = $user->getCiudad();
+                    header("Location: ../views/dashboard.php?name=$name&empresa=$empresa&ciudad=$ciudad");
                 }
                 exit();
+            } else {
+                echo "Email o contraseña incorrectos: " . $email . " - " . $password;
+                ?>
+                <meta http-equiv="refresh" content="5;url=../views/login.php">
+<?php
             }
-
-            $this->redirectWithError("Credenciales incorrectas", '../views/login.php');
+        } else {
+            echo "Datos insuficientes.";
         }
-    }
-
-    private function redirectWithError($message, $url)
-    {
-        echo "<script>
-            alert('$message');
-            window.location.href = '$url';
-        </script>";
-        exit();
-    }
-
-    private function redirectWithSuccess($message, $url)
-    {
-        echo "<script>
-            alert('$message');
-            window.location.href = '$url';
-        </script>";
-        exit();
     }
 }
 
-// Manejo de solicitudes
+
+// Crear una instancia del controlador y llamar al método register
 $authController = new AuthController();
 
 if (isset($_POST['login'])) {
     $authController->login();
-} elseif (isset($_POST['register'])) {
+} else {
     $authController->register();
-} elseif (isset($_GET['logout'])) {
+}
+if (isset($_GET['logout'])) {
     session_start();
     session_destroy();
     header("Location: ../index.php");
-    exit();
 }

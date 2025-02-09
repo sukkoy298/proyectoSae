@@ -19,21 +19,90 @@ h2 {
   font-weight: bold;
 }
 
-.boton {
-  font-weight: bold;
-  border-color: rgb(158, 158, 158);
-  border-width: 0.125rem;
-  border-style: dashed;
+#delete:hover {
+  color: #ffffff;
+  background-color: #dc3545;
+  border-color: #dc3545;
 }
 
-#edit:hover {
+.espera,
+.asignado,
+.proceso,
+.terminado {
+  transition: border-color 0.5s ease, border-radius 0.5s ease-out;
+}
+
+.espera h3,
+.asignado h3,
+.proceso h3,
+.terminado h3 {
+  transition: color 0.5s ease, font-weight 0.5s ease;
+}
+
+.espera:hover {
+  border: 0.125rem, solid, rgb(255, 193, 7);
+  border-radius: 1rem;
+}
+
+.espera h3:hover {
+  color: rgb(255, 193, 7);
+  font-weight: bold;
+}
+
+#edit_amarillo:hover {
   color: #ffffff;
   background-color: #ffc107;
   border-color: #ffc107;
 }
 
-#delete:hover {
+.asignado:hover {
+  border: 0.125rem, solid, rgb(13, 110, 253);
+  border-radius: 1rem;
+}
+
+.asignado h3:hover {
+  color: rgb(13, 110, 253);
+  font-weight: bold;
+}
+
+#edit_azul:hover {
   color: #ffffff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+  background-color: rgb(13, 110, 253);
+  border-color: rgb(13, 110, 253);
+}
+
+.proceso:hover {
+  border: 0.125rem, solid, rgb(102, 16, 242);
+  border-radius: 1rem;
+}
+
+.proceso h3:hover {
+  color: rgb(102, 16, 242);
+  font-weight: bold;
+}
+
+#edit_morado {
+  border: 1px, solid, rgb(102, 16, 242);
+}
+
+#edit_morado:hover {
+  color: #ffffff;
+  background-color: rgb(102, 16, 242);
+  border-color: rgb(102, 16, 242);
+}
+
+.terminado:hover {
+  border: 0.125rem, solid, rgb(25, 135, 84);
+  border-radius: 1rem;
+}
+
+.terminado h3:hover {
+  color: rgb(25, 135, 84);
+  font-weight: bold;
+}
+
+#edit_verde:hover {
+  color: #ffffff;
+  background-color: rgb(25, 135, 84);
+  border-color: rgb(25, 135, 84);
 }

@@ -49,13 +49,7 @@ class ProyectController
                     $proyecto->setRequisitos($_POST['requisitos']);
 
                     if ($proyecto->editar()) {
-                        if(isset($_POST['is_admin']) && $_POST['is_admin'] === 'true') {
-                            header("Location: ../views/dashboard-admin.php");
-                            exit();
-                        }else{
-                            header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
-                            exit();
-                        }
+                        header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
                         exit();
                     } else {
                         echo "Error al actualizar el proyecto.";
