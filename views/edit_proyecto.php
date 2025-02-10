@@ -13,7 +13,7 @@
 
     // Obtener el ID del proyecto desde la URL
     $id = isset($_GET['id']) ? $_GET['id'] : null;
-    $admin = isset($_GET['admin']) ? $_GET['admin'] : null;
+    $admin = isset($_GET['admin']) ? $_GET['admin'] : true;
     $proyecto = Proyecto::obtenerProyectoPorId($id);
 
     if ($proyecto) {

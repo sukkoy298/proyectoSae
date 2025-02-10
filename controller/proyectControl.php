@@ -1,4 +1,5 @@
 <?php
+
 require_once '../models/proyectos.php';
 
 class ProyectController {
@@ -35,6 +36,7 @@ class ProyectController {
                 $proyecto = Proyecto::obtenerProyectoPorId($id);
 
                 if ($proyecto) {
+                
                     // Actualizar los datos del proyecto
                     $proyecto->setEmpresa($_POST['empresa']);
                     $proyecto->setCiudad($_POST['ciudad']);
@@ -45,10 +47,10 @@ class ProyectController {
                     $proyecto->setRequisitos($_POST['requisitos']);
 
                     if ($proyecto->editar()) {
-                        if (isset($_POST['is_admin'])) {
+                        if (!empty($_POST['is_admin']) && $_POST['is_admin'] == "true"){
                             header("Location: ../views/dashboard-admin.php");
                             exit();
-                        }else{
+                        } else {
                             header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
                             exit();
                         }
