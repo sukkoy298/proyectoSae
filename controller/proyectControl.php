@@ -87,8 +87,13 @@ class ProyectController {
 
             if ($proyecto) {
                 if ($proyecto->eliminar()) {
+                    if (isset($_GET['admin'])) {
+                        header("Location: ../views/dashboard-admin.php");
+                        exit();
+                    }else {
                     header("Location: ../views/dashboard.php?empresa=" . $proyecto->getEmpresa() . "&ciudad=" . $proyecto->getCiudad());
                     exit();
+                    }
                 } else {
                     echo "Error al eliminar el proyecto.";
                 }
