@@ -4,6 +4,7 @@
 <div class="container">
     <form action="../controller/authControl.php" method="POST">
         <div class="mb-3">
+            <input type="hidden" value="register" name="register">
             <label for="name" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s'-]+$" title="El nombre solo puede contener letras, espacios, apóstrofes y guiones." required>
         </div>
